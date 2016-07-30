@@ -1,0 +1,12 @@
+{
+  "name": "canteenreport",
+  "app_id": "canteen",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

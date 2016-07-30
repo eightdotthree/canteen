@@ -1,0 +1,68 @@
+<!-- The title of the ion-view will be shown on the navbar -->
+<ion-view view-title="Report">
+  <ion-nav-buttons side="primary">
+    <button
+        class="button"
+        ng-disabled="syncing"
+        ng-click="sync()">
+        <ion-spinner ng-show="syncing"></ion-spinner> Sync
+    </button>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="secondary">
+    <button class="button" ng-click="close()">
+        Close
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <form novalidate name="reportForm" ng-submit="save(reportForm)">
+        <fieldset>
+            <!-- unit number -->
+            <div class="row">
+                <div class="col">
+                    <label class="input-label required">
+                        Unit Number
+                    </label>
+
+                    <input
+                        id="incident-unit-number"
+                        name="incident-unit-number"
+                        type="text"
+                        class="input"
+                        placeholder="Unit Number"
+                        required
+                        ng-model="incidentUnitNumber" />
+                </div>
+            </div>
+
+            <!-- incident start -->
+            <div class="row">
+                <div class="col">
+                    <label class="input-label required">
+                        Dispatch
+                    </label>
+
+                    <input
+                        id="incident-start"
+                        name="incident-start"
+                        type="datetime-local"
+                        class="input"
+                        placeholder="mm/dd/yyyy"
+                        ng-model="incidentStart" />
+                </div>
+            </div>
+        </fieldset>
+
+        <footer class="report-footer">
+            <div class="row">
+                <div class="col">
+                    <button class="button button-assertive" type="submit">
+                        Submit Final Report
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </form>
+  </ion-content>
+</ion-view>

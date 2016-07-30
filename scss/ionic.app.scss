@@ -1,0 +1,90 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+$stable:                            #d8d7d2 !default; // darker taupe
+$assertive:                         #de373f !default; // salvation red
+$dark:                              #322f28 !default;
+
+$input-label-color:                 $dark;
+
+$button-padding:                    20px !default;
+
+$button-bar-button-padding:         15px;
+$button-bar-button-icon-size:       16px !default;
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+.button {
+    .spinner {
+        pointer-events: none;
+        position: relative;
+        top: 4px;
+
+        svg {
+            width: $button-bar-button-icon-size !important;
+            height: $button-bar-button-icon-size !important;
+        }
+    }
+}
+
+.form-group {
+    .item-input {
+        border: none;
+        padding: 0;
+    }
+}
+
+.report-footer {
+    background-color: $dark;
+    margin-top: 20px;
+}
+
+
+.input {
+    border: 1px solid #c7c4bc !important;
+    border-radius: 2px;
+    padding: 15px 10px !important;
+
+    .ng-submitted & {
+        &.ng-invalid {
+            border-color: $assertive !important;
+        }
+    }
+}
+
+.input-label {
+    font-size: 14px;
+    font-weight: 500;
+
+    &.required {
+        &:after {
+            content: "*";
+            font-size: 18px;
+            color: $assertive;
+            line-height: 14px;
+        }
+    }
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+}
