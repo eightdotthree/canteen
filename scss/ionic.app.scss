@@ -16,6 +16,7 @@ $dark:                            #444 !default;
 */
 
 $stable:                            #d8d7d2 !default; // darker taupe
+$stable-light:                      #ebebe8;
 $assertive:                         #de373f !default; // salvation red
 $dark:                              #322f28 !default;
 
@@ -31,6 +32,22 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+
+.canteen {
+    .bar-stable {
+        .button {
+            background-color: $stable-light;
+            border-color: darken($stable-light, 15%);
+        }
+    }
+}
+
+.report-nav {
+    background-color: $stable-light;
+}
+.report-body {
+    background-color: white;
+}
 
 .button {
     .spinner {

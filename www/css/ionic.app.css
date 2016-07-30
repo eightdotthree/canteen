@@ -9815,6 +9815,16 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.canteen .bar-stable .button {
+  background-color: #ebebe8;
+  border-color: #c7c7bf; }
+
+.report-nav {
+  background-color: #ebebe8; }
+
+.report-body {
+  background-color: white; }
+
 .button .spinner {
   pointer-events: none;
   position: relative;
