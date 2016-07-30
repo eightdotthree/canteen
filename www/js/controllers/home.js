@@ -5,8 +5,18 @@
      */
     angular.module('canteenreport')
         .controller('HomeController',
-            function ($scope) {
+            function ($scope, $window) {
                 console.group('HomeController');
+
+                function setWindowWidth () {
+                    $scope.windowHeight = $window.innerHeight;
+                }
+
+                angular.element($window).bind('resize', function () {
+                    $scope.$apply(function () {
+                        setWindowWidth();
+                    })
+                });
                 console.groupEnd();
             }
         );

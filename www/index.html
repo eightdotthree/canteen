@@ -27,18 +27,49 @@
     </ion-nav-view>
 
     <script id="home.html" type="text/ng-template">
-      <!-- The title of the ion-view will be shown on the navbar -->
-      <ion-view view-title="Home">
-        <ion-content padding="true">
-          <button class="button button-assertive" nav-direction="forward" ui-sref="report">
+      <ion-view view-title="Canteen Report">
+
+        <ion-nav-buttons side="secondary">
+          <button class="button" nav-direction="forward" ui-sref="report">
             New Report
           </button>
+        </ion-nav-buttons>
+
+        <ion-content class="report-home" scroll="true">
+
+          <div class="report-home-body" style="height: {{ windowHeight }}px;">
+
+            <div>
+              <div class="report-home-body-item">
+                <img src="img/logo.png" class="report-home-logo" alt="Salvation Army logo" /><br />
+                <h1>Canteen Report</h1>
+              </div>
+
+              <div class="report-home-body-item">
+                <button class="button button-assertive" nav-direction="forward" ui-sref="report">
+                  New Report
+                </button>
+              </div>
+
+              <div class="report-home-body-item">
+                <div class="list list-open-reports">
+                  <div class="item item-divider">
+                    Open Reports
+                  </div>
+                  <a class="item" ui-sref="report">
+                    Butterfinger
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
         </ion-content>
       </ion-view>
     </script>
 
     <script src="js/controllers/home.js"></script>
     <script src="js/controllers/report.js"></script>
-
   </body>
 </html>

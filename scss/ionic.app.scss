@@ -1,18 +1,18 @@
-/*
-To customize the look and feel of Ionic, you can override the variables
-in ionic's _variables.scss file.
+/**
+    To customize the look and feel of Ionic, you can override the variables
+    in ionic's _variables.scss file.
 
-For example, you might change some of the default colors:
+    For example, you might change some of the default colors:
 
-$light:                           #fff !default;
-$stable:                          #f8f8f8 !default;
-$positive:                        #387ef5 !default;
-$calm:                            #11c1f3 !default;
-$balanced:                        #33cd5f !default;
-$energized:                       #ffc900 !default;
-$assertive:                       #ef473a !default;
-$royal:                           #886aea !default;
-$dark:                            #444 !default;
+    $light:                           #fff !default;
+    $stable:                          #f8f8f8 !default;
+    $positive:                        #387ef5 !default;
+    $calm:                            #11c1f3 !default;
+    $balanced:                        #33cd5f !default;
+    $energized:                       #ffc900 !default;
+    $assertive:                       #ef473a !default;
+    $royal:                           #886aea !default;
+    $dark:                            #444 !default;
 */
 
 $stable:                            #d8d7d2 !default; // darker taupe
@@ -27,6 +27,8 @@ $button-padding:                    20px !default;
 $button-bar-button-padding:         15px;
 $button-bar-button-icon-size:       16px !default;
 
+$report-body-padding:               20px;
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
@@ -34,74 +36,169 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/lib/ionic/scss/ionic";
 
 .canteen {
+    .pane {
+        background: $stable-light;
+        background: linear-gradient(to bottom,  $stable-light 0%, darken($stable, 10%) 100%);
+    }
+
     .bar-stable {
         .button {
             background-color: $stable-light;
             border-color: darken($stable-light, 15%);
+
+            .spinner {
+                top: 4px;
+            }
         }
     }
-}
 
-.report-nav {
-    background-color: $stable-light;
-}
-.report-body {
-    background-color: white;
-}
+    .report-nav {
+        padding-top: 20px;
 
-.button {
-    .spinner {
-        pointer-events: none;
-        position: relative;
-        top: 4px;
+        .button-report-nav {
+            @include button-style(transparent, transparent, transparent, transparent, $button-default-text);
 
-        svg {
-            width: $button-bar-button-icon-size !important;
-            height: $button-bar-button-icon-size !important;
+            padding: 0;
+            margin: 0 auto;
+            line-height: 28px;
+            text-align: center;
+            display: block;
+
+            .icon {
+                padding: 0;
+                margin: 0 auto;
+                display: block;
+
+                &:before {
+                    font-size: 32px;
+                }
+            }
+
+            &:active,
+            &:focus,
+            &.activated,
+            &.active {
+                color: $assertive;
+
+                .icon {
+                    color: $assertive;
+                }
+            }
+        }
+
+        ul {
+            li {
+                margin-bottom: 25px;
+            }
         }
     }
-}
 
-.form-group {
-    .item-input {
+    .report-home {
+        text-align: center;
+
+        .list-open-reports {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .report-home-body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 600px;
+
+            h1 {
+                margin-top: 5px;
+            }
+
+            > div {
+                width: 100%;
+            }
+
+            .button-assertive {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+
+        .report-home-body-item {
+            width: 100%;
+            margin: 0 auto 40px auto;
+        }
+
+        .report-home-body-item-top {
+            align-self: flex-start;
+        }
+    }
+
+    .report-home-logo {
+        width: 40%;
+        max-width: 250px;
+        height: auto;
+    }
+
+    .report-body-wrapper {
+        background-color: white;
+    }
+
+    .report-body {
+        padding: 0 $report-body-padding;
+    }
+
+    .button {
+        .spinner {
+            pointer-events: none;
+            position: relative;
+            top: 4px;
+
+            svg {
+                width: $button-bar-button-icon-size !important;
+                height: $button-bar-button-icon-size !important;
+            }
+        }
+    }
+
+    .form-group {
+        .item-input {
+            border: none;
+            padding: 0;
+        }
+    }
+
+    .report-footer {
+        background-color: $dark;
+        padding: 10px $report-body-padding;
+        margin-top: $report-body-padding;
+    }
+
+    .input {
+        border: 1px solid #c7c4bc !important;
+        border-radius: 2px;
+        padding: 15px 10px !important;
+
+        .ng-submitted & {
+            &.ng-invalid {
+                border-color: $assertive !important;
+            }
+        }
+    }
+
+    .input-label {
+        font-size: 14px;
+        font-weight: 500;
+
+        &.required {
+            &:after {
+                content: "*";
+                font-size: 18px;
+                color: $assertive;
+                line-height: 14px;
+            }
+        }
+    }
+
+    fieldset {
         border: none;
         padding: 0;
     }
-}
-
-.report-footer {
-    background-color: $dark;
-    margin-top: 20px;
-}
-
-
-.input {
-    border: 1px solid #c7c4bc !important;
-    border-radius: 2px;
-    padding: 15px 10px !important;
-
-    .ng-submitted & {
-        &.ng-invalid {
-            border-color: $assertive !important;
-        }
-    }
-}
-
-.input-label {
-    font-size: 14px;
-    font-weight: 500;
-
-    &.required {
-        &:after {
-            content: "*";
-            font-size: 18px;
-            color: $assertive;
-            line-height: 14px;
-        }
-    }
-}
-
-fieldset {
-    border: none;
-    padding: 0;
 }

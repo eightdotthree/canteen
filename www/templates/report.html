@@ -1,5 +1,4 @@
-<!-- The title of the ion-view will be shown on the navbar -->
-<ion-view view-title="Report">
+<ion-view view-title="{{ titlePrefix }} Report">
 
   <ion-nav-buttons side="primary">
     <button
@@ -16,65 +15,119 @@
     </button>
   </ion-nav-buttons>
 
-  <ion-content scroll="false" class="report-nav">
-    <div>
-      <p>Left column</p>
+  <!-- report navigation -->
+  <ion-content scroll="false" class="report-nav" style="width: 20%; z-index: 500;">
+    <div class="row row-no-padding">
+      <div class="col">
+
+        <ul>
+          <li>
+            <button
+              class="button button-report-nav"
+              ng-class="{ 'active': activeSection === 'incident' }"
+              ng-click="goToSection('incident')">
+
+              <i class="icon ion-ios-flag"></i>
+              Incident
+            </button>
+          </li>
+
+          <li>
+            <button
+              class="button button-report-nav"
+              ng-class="{ 'active': activeSection === 'team' }"
+              ng-click="goToSection('team')">
+
+              <i class="icon ion-ios-people"></i>
+              Team
+            </button>
+          </li>
+
+          <li>
+            <button
+              class="button button-report-nav"
+              ng-class="{ 'active': activeSection === 'services' }"
+              ng-click="goToSection('services')">
+
+              <i class="icon ion-ios-copy"></i>
+              Services
+            </button>
+          </li>
+
+          <li>
+            <button
+              class="button button-report-nav"
+              ng-class="{ 'active': activeSection === 'finish' }"
+              ng-click="goToSection('finish')">
+
+              <i class="icon ion-checkmark"></i>
+              Finish
+            </button>
+          </li>
+        </ul>
+
+      </div>
     </div>
   </ion-content>
 
+  <!-- report -->
   <ion-content scroll="true">
     <form
       novalidate
       name="reportForm"
       ng-submit="save(reportForm)">
+
       <div class="row row-no-padding">
-        <div class="col col-80 col-offset-20 report-body">
-          <fieldset>
+        <div class="col col-80 col-offset-20 report-body-wrapper">
 
-            <!-- unit number -->
+          <section class="report-body">
+            <fieldset>
+
+              <!-- unit number -->
+              <div class="row">
+                <div class="col">
+                  <label class="input-label required">
+                    Unit Number
+                  </label>
+
+                  <input
+                    id="incident-unit-number"
+                    name="incident-unit-number"
+                    type="text"
+                    class="input"
+                    placeholder="Unit Number"
+                    required
+                    ng-model="incidentUnitNumber" />
+                </div>
+              </div>
+
+              <!-- incident start -->
+              <div class="row">
+                <div class="col">
+                  <label class="input-label required">
+                    Dispatch
+                  </label>
+
+                  <input
+                    id="incident-start"
+                    name="incident-start"
+                    type="datetime-local"
+                    class="input"
+                    placeholder="mm/dd/yyyy"
+                    ng-model="incidentStart" />
+                </div>
+              </div>
+
+            </fieldset>
+
             <div class="row">
               <div class="col">
-                <label class="input-label required">
-                  Unit Number
-                </label>
-
-                <input
-                  id="incident-unit-number"
-                  name="incident-unit-number"
-                  type="text"
-                  class="input"
-                  placeholder="Unit Number"
-                  required
-                  ng-model="incidentUnitNumber" />
+                <p>Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.</p>
+                <p>Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.</p>
+                <p>Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.</p>
               </div>
             </div>
-
-            <!-- incident start -->
-            <div class="row">
-              <div class="col">
-                <label class="input-label required">
-                  Dispatch
-                </label>
-
-                <input
-                  id="incident-start"
-                  name="incident-start"
-                  type="datetime-local"
-                  class="input"
-                  placeholder="mm/dd/yyyy"
-                  ng-model="incidentStart" />
-              </div>
-            </div>
-
-          </fieldset>
-
-          <div class="row">
-            <div class="col">
-              <p>Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.</p>
-              <p>Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.</p>
-              <p>Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.</p>
-            </div>
-          </div>
+          </section>
 
           <footer class="report-footer">
             <div class="row">
@@ -85,9 +138,11 @@
               </div>
             </div>
           </footer>
+
         </div>
       </div>
 
     </form>
   </ion-content>
+
 </ion-view>

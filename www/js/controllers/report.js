@@ -8,18 +8,22 @@
             function ($scope, $state, $timeout, $ionicPopup, $ionicViewSwitcher) {
                 console.group('ReportController');
 
+                $scope.titlePrefix = 'New';
                 $scope.syncing = false;
+                $scope.activeSection = 'incident';
 
                 /**
                  * Syncs the form with the server.
                  */
                 $scope.sync = function () {
+                    console.group('sync');
                     $scope.syncing = true;
 
                     $timeout(function () {
                         $scope.syncing = false;
                     }, 1000 + Math.random() * 3);
 
+                    console.groupEnd();
                 };
 
                 /**
@@ -41,6 +45,12 @@
                         }
                     })
 
+                    console.groupEnd();
+                };
+
+                $scope.goToSection = function (section) {
+                    console.group('goTo');
+                    $scope.activeSection = section;
                     console.groupEnd();
                 };
 

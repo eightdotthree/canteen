@@ -1,19 +1,19 @@
 @charset "UTF-8";
-/*
-To customize the look and feel of Ionic, you can override the variables
-in ionic's _variables.scss file.
+/**
+    To customize the look and feel of Ionic, you can override the variables
+    in ionic's _variables.scss file.
 
-For example, you might change some of the default colors:
+    For example, you might change some of the default colors:
 
-$light:                           #fff !default;
-$stable:                          #f8f8f8 !default;
-$positive:                        #387ef5 !default;
-$calm:                            #11c1f3 !default;
-$balanced:                        #33cd5f !default;
-$energized:                       #ffc900 !default;
-$assertive:                       #ef473a !default;
-$royal:                           #886aea !default;
-$dark:                            #444 !default;
+    $light:                           #fff !default;
+    $stable:                          #f8f8f8 !default;
+    $positive:                        #387ef5 !default;
+    $calm:                            #11c1f3 !default;
+    $balanced:                        #33cd5f !default;
+    $energized:                       #ffc900 !default;
+    $assertive:                       #ef473a !default;
+    $royal:                           #886aea !default;
+    $dark:                            #444 !default;
 */
 /*!
   Ionicons, v2.0.1
@@ -9815,48 +9815,113 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.canteen .pane {
+  background: #ebebe8;
+  background: linear-gradient(to bottom, #ebebe8 0%, #c0bfb7 100%); }
+
 .canteen .bar-stable .button {
   background-color: #ebebe8;
   border-color: #c7c7bf; }
+  .canteen .bar-stable .button .spinner {
+    top: 4px; }
 
-.report-nav {
-  background-color: #ebebe8; }
+.canteen .report-nav {
+  padding-top: 20px; }
+  .canteen .report-nav .button-report-nav {
+    border-color: transparent;
+    background-color: transparent;
+    color: #444;
+    padding: 0;
+    margin: 0 auto;
+    line-height: 28px;
+    text-align: center;
+    display: block; }
+    .canteen .report-nav .button-report-nav:hover {
+      color: #444;
+      text-decoration: none; }
+    .canteen .report-nav .button-report-nav.active, .canteen .report-nav .button-report-nav.activated {
+      border-color: transparent;
+      background-color: transparent; }
+    .canteen .report-nav .button-report-nav .icon {
+      padding: 0;
+      margin: 0 auto;
+      display: block; }
+      .canteen .report-nav .button-report-nav .icon:before {
+        font-size: 32px; }
+    .canteen .report-nav .button-report-nav:active, .canteen .report-nav .button-report-nav:focus, .canteen .report-nav .button-report-nav.activated, .canteen .report-nav .button-report-nav.active {
+      color: #de373f; }
+      .canteen .report-nav .button-report-nav:active .icon, .canteen .report-nav .button-report-nav:focus .icon, .canteen .report-nav .button-report-nav.activated .icon, .canteen .report-nav .button-report-nav.active .icon {
+        color: #de373f; }
+  .canteen .report-nav ul li {
+    margin-bottom: 25px; }
 
-.report-body {
+.canteen .report-home {
+  text-align: center; }
+  .canteen .report-home .list-open-reports {
+    max-width: 400px;
+    margin: 0 auto; }
+  .canteen .report-home .report-home-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px; }
+    .canteen .report-home .report-home-body h1 {
+      margin-top: 5px; }
+    .canteen .report-home .report-home-body > div {
+      width: 100%; }
+    .canteen .report-home .report-home-body .button-assertive {
+      width: 100%;
+      max-width: 200px; }
+  .canteen .report-home .report-home-body-item {
+    width: 100%;
+    margin: 0 auto 40px auto; }
+  .canteen .report-home .report-home-body-item-top {
+    align-self: flex-start; }
+
+.canteen .report-home-logo {
+  width: 40%;
+  max-width: 250px;
+  height: auto; }
+
+.canteen .report-body-wrapper {
   background-color: white; }
 
-.button .spinner {
+.canteen .report-body {
+  padding: 0 20px; }
+
+.canteen .button .spinner {
   pointer-events: none;
   position: relative;
   top: 4px; }
-  .button .spinner svg {
+  .canteen .button .spinner svg {
     width: 16px !important;
     height: 16px !important; }
 
-.form-group .item-input {
+.canteen .form-group .item-input {
   border: none;
   padding: 0; }
 
-.report-footer {
+.canteen .report-footer {
   background-color: #322f28;
+  padding: 10px 20px;
   margin-top: 20px; }
 
-.input {
+.canteen .input {
   border: 1px solid #c7c4bc !important;
   border-radius: 2px;
   padding: 15px 10px !important; }
-  .ng-submitted .input.ng-invalid {
+  .ng-submitted .canteen .input.ng-invalid {
     border-color: #de373f !important; }
 
-.input-label {
+.canteen .input-label {
   font-size: 14px;
   font-weight: 500; }
-  .input-label.required:after {
+  .canteen .input-label.required:after {
     content: "*";
     font-size: 18px;
     color: #de373f;
     line-height: 14px; }
 
-fieldset {
+.canteen fieldset {
   border: none;
   padding: 0; }
