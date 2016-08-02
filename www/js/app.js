@@ -3,8 +3,8 @@
 // the 2nd parameter is an array of 'requires'
 var app = angular.module('canteenreport', ['ionic']);
 
-app.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
+app.run(function ($ionicPlatform) {
+  $ionicPlatform.ready(function () {
     console.group('ionicPlatform.ready');
 
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -17,9 +17,20 @@ app.run(function($ionicPlatform) {
       // a much nicer keyboard experience.
       cordova.plugins.Keyboard.disableScroll(true);
     }
+
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+
+    var push = new Ionic.Push({
+      debug: true
+    });
+
+    push.register(function (token) {
+      console.group('Ionic Push:');
+        console.info('device token: ' + token.token);
+      console.groupEnd();
+    });
 
     console.groupEnd();
   });
