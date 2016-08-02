@@ -1,6 +1,6 @@
 {
   "name": "canteenreport",
-  "app_id": "canteen",
+  "app_id": "6c19c7a3",
   "gulpStartupTasks": [
     "sass",
     "watch"
