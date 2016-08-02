@@ -5,12 +5,13 @@
      */
     angular.module('canteenreport')
         .controller('ReportController',
-            function ($scope, $state, $timeout, $ionicPopup, $ionicViewSwitcher) {
+            function ($scope, $state, $timeout, $ionicPopup, $ionicViewSwitcher, US_STATES) {
                 console.group('ReportController');
 
                 $scope.titlePrefix = 'New';
                 $scope.syncing = false;
                 $scope.activeSection = 'incident';
+                $scope.states = US_STATES;
 
                 /**
                  * Syncs the form with the server.

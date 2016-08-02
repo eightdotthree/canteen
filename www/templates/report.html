@@ -16,7 +16,9 @@
   </ion-nav-buttons>
 
   <!-- report navigation -->
-  <ion-content scroll="false" class="report-nav" style="width: 20%; z-index: 500;">
+  <ion-content
+    scroll="false"
+    class="content-report-nav">
     <div class="row row-no-padding">
       <div class="col">
 
@@ -71,78 +73,222 @@
   </ion-content>
 
   <!-- report -->
-  <ion-content scroll="true">
-    <form
-      novalidate
-      name="reportForm"
-      ng-submit="save(reportForm)">
+  <ion-content
+    scroll="true"
+    class="content-report-body">
 
-      <div class="row row-no-padding">
-        <div class="col col-80 col-offset-20 report-body-wrapper">
+    <div class="report-body-wrapper">
+      <form
+        novalidate
+        name="reportForm"
+        ng-submit="save(reportForm)">
 
-          <section class="report-body">
-            <fieldset>
+        <div class="row row-no-padding">
+          <div class="col">
 
-              <!-- unit number -->
-              <div class="row">
+            <section class="report-section">
+
+              <!-- incident -->
+              <fieldset class="fieldset">
+
+                <!-- unit number -->
+                <div class="row row-report-form">
+                  <div class="col col-20">
+                    <label for="incident-unit-number" class="input-label required">
+                      Unit Number
+                    </label>
+
+                    <input
+                      id="incident-unit-number"
+                      name="incident-unit-number"
+                      type="text"
+                      size="10"
+                      class="input"
+                      required
+                      ng-model="incidentUnitNumber" />
+                  </div>
+                </div>
+
+                <!-- start -->
+                <div class="row row-report-form">
+                  <div class="col col-33">
+                    <label for="incident-start" class="input-label required">
+                      Dispatch
+                    </label>
+
+                    <input
+                      id="incident-start"
+                      name="incident-start"
+                      type="datetime-local"
+                      class="input"
+                      placeholder="mm/dd/yyyy"
+                      required
+                      ng-model="incidentStart" />
+                  </div>
+                </div>
+
+                <!-- in route, on scene -->
+                <div class="row row-report-form">
+                  <div class="col col-33">
+                    <label for="incident-inroute" class="input-label required">
+                      In Route
+                    </label>
+
+                    <input
+                      id="incident-inroute"
+                      name="incident-inroute"
+                      class="input"
+                      type="datetime-local"
+                      placeholder="mm/dd/yyyy"
+                      required
+                      ng-model="incidentInroute" />
+                  </div>
+
+                  <!-- on the scene -->
+                  <div class="col col-33">
+                    <label for="incident-onscene" class="input-label required">
+                      On the Scene
+                    </label>
+
+                    <input
+                      id="incident-onscene"
+                      name="incident-onscene"
+                      class="input"
+                      type="datetime-local"
+                      placeholder="mm/dd/yyyy"
+                      ng-model="incidentOnscene" />
+                  </div>
+                </div>
+
+                <!-- address -->
+                <div class="row row-report-form">
+                  <div class="col col-40">
+                    <label class="input-label">
+                      Location of incident
+                    </label>
+
+                    <label for="incident-address" class="input-label input-label-light required">
+                      Address
+                    </label>
+
+                    <input
+                      id="incident-address"
+                      name="incident-address"
+                      class="input"
+                      type="text"
+                      required
+                      ng-model="incidentAddress" />
+                  </div>
+                </div>
+
+                <!-- city, state, zipcode -->
+                <div class="row row-report-form">
+
+                  <!-- city -->
+                  <div class="col col-33">
+                    <label for="incident-city" class="input-label input-label-light required">
+                      City
+                    </label>
+
+                    <input
+                      id="incident-city"
+                      name="incident-city"
+                      class="input"
+                      type="text"
+                      required
+                      ng-model="incidentCity" />
+                  </div>
+
+                  <!-- state -->
+                  <div class="col col-20">
+                    <label for="incident-state" class="input-label input-label-light required">
+                      State
+                    </label>
+
+                    <select
+                      id="incident-state"
+                      name="incident-state"
+                      class="input-select"
+                      required
+                      ng-model="incidentState"
+                      ng-options="option.abbr for option in states track by option.abbr">
+                    </select>
+                  </div>
+
+                  <!-- zipcode -->
+                  <div class="col col-20">
+                    <label for="incident-zipcode" class="input-label input-label-light">
+                      Zip
+                    </label>
+
+                    <input
+                      id="incident-zipcode"
+                      name="incident-zipcode"
+                      class="input"
+                      type="number"
+                      ng-model="incidentZipcode" />
+                  </div>
+                </div>
+
+                <!-- type of call -->
+                <div class="row row-report-form">
+                  <div class="col">
+                    <label class="input-label required">
+                      Type of call
+                    </label>
+
+                    <div class="row row-report-form row-report-form-checkbox-group">
+                      <div class="col col-50">
+                        <ion-checkbox class="input-checkbox" ng-model="incidentTypeFire">Fire/Alarm/Companies</ion-checkbox>
+                      </div>
+
+                      <div class="col col-50">
+                        <ion-checkbox class="input-checkbox" ng-model="incidentTypeFlood">Flood</ion-checkbox>
+                      </div>
+                    </div>
+
+                    <div class="row row-report-form row-report-form-checkbox-group">
+                      <div class="col col-50">
+                        <ion-checkbox class="input-checkbox" ng-model="incidentTypeHazmat">Hazmat</ion-checkbox>
+                      </div>
+
+                      <div class="col col-50">
+                        <ion-checkbox class="input-checkbox" ng-model="incidentTypeSpecial">Special Event</ion-checkbox>
+                      </div>
+                    </div>
+
+                    <div class="row row-report-form row-report-form-checkbox-group">
+                      <div class="col col-50">
+                        <ion-checkbox class="input-checkbox" ng-model="incidentTypeMaintenence">Maintenence</ion-checkbox>
+                      </div>
+
+                      <div class="col col-50">
+                        <ion-checkbox class="input-checkbox" ng-model="incidentTypeOther">Other</ion-checkbox>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </fieldset>
+            </section>
+
+            <footer class="report-footer">
+              <div class="row row-report-form">
                 <div class="col">
-                  <label class="input-label required">
-                    Unit Number
-                  </label>
-
-                  <input
-                    id="incident-unit-number"
-                    name="incident-unit-number"
-                    type="text"
-                    class="input"
-                    placeholder="Unit Number"
-                    required
-                    ng-model="incidentUnitNumber" />
+                  <button
+                    class="button button-assertive"
+                    type="submit">
+                    Submit Final Report
+                  </button>
                 </div>
               </div>
+            </footer>
 
-              <!-- incident start -->
-              <div class="row">
-                <div class="col">
-                  <label class="input-label required">
-                    Dispatch
-                  </label>
-
-                  <input
-                    id="incident-start"
-                    name="incident-start"
-                    type="datetime-local"
-                    class="input"
-                    placeholder="mm/dd/yyyy"
-                    ng-model="incidentStart" />
-                </div>
-              </div>
-
-            </fieldset>
-
-            <div class="row">
-              <div class="col">
-                <p>Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.</p>
-                <p>Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.</p>
-                <p>Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.</p>
-              </div>
-            </div>
-          </section>
-
-          <footer class="report-footer">
-            <div class="row">
-              <div class="col">
-                <button class="button button-assertive" type="submit">
-                  Submit Final Report
-                </button>
-              </div>
-            </div>
-          </footer>
-
+          </div>
         </div>
-      </div>
-
-    </form>
+      </form>
+    </div>
   </ion-content>
 
 </ion-view>

@@ -27,13 +27,23 @@ $button-padding:                    20px !default;
 $button-bar-button-padding:         15px;
 $button-bar-button-icon-size:       16px !default;
 
-$report-body-padding:               20px;
+$grid-padding-width:                10px;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
+// canteen report variables
+$report-body-padding:               20px - $grid-padding-width;
+$report-nav-width:                  100px;
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+
+@import "layout/_home";
+@import "layout/_report-body";
+@import "layout/_report-nav";
+
+@import "components/_list-open-reports";
 
 .canteen {
     .pane {
@@ -52,99 +62,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
         }
     }
 
-    .report-nav {
-        padding-top: 20px;
-
-        .button-report-nav {
-            @include button-style(transparent, transparent, transparent, transparent, $button-default-text);
-
-            padding: 0;
-            margin: 0 auto;
-            line-height: 28px;
-            text-align: center;
-            display: block;
-
-            .icon {
-                padding: 0;
-                margin: 0 auto;
-                display: block;
-
-                &:before {
-                    font-size: 32px;
-                }
-            }
-
-            &:active,
-            &:focus,
-            &.activated,
-            &.active {
-                color: $assertive;
-
-                .icon {
-                    color: $assertive;
-                }
-            }
-        }
-
-        ul {
-            li {
-                margin-bottom: 25px;
-            }
-        }
-    }
-
-    .report-home {
-        text-align: center;
-
-        .list-open-reports {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .report-home-body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 600px;
-
-            h1 {
-                margin-top: 5px;
-            }
-
-            > div {
-                width: 100%;
-            }
-
-            .button-assertive {
-                width: 100%;
-                max-width: 200px;
-            }
-        }
-
-        .report-home-body-item {
-            width: 100%;
-            margin: 0 auto 40px auto;
-        }
-
-        .report-home-body-item-top {
-            align-self: flex-start;
-        }
-    }
-
-    .report-home-logo {
-        width: 40%;
-        max-width: 250px;
-        height: auto;
-    }
-
-    .report-body-wrapper {
-        background-color: white;
-    }
-
-    .report-body {
-        padding: 0 $report-body-padding;
-    }
-
     .button {
         .spinner {
             pointer-events: none;
@@ -156,49 +73,5 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
                 height: $button-bar-button-icon-size !important;
             }
         }
-    }
-
-    .form-group {
-        .item-input {
-            border: none;
-            padding: 0;
-        }
-    }
-
-    .report-footer {
-        background-color: $dark;
-        padding: 10px $report-body-padding;
-        margin-top: $report-body-padding;
-    }
-
-    .input {
-        border: 1px solid #c7c4bc !important;
-        border-radius: 2px;
-        padding: 15px 10px !important;
-
-        .ng-submitted & {
-            &.ng-invalid {
-                border-color: $assertive !important;
-            }
-        }
-    }
-
-    .input-label {
-        font-size: 14px;
-        font-weight: 500;
-
-        &.required {
-            &:after {
-                content: "*";
-                font-size: 18px;
-                color: $assertive;
-                line-height: 14px;
-            }
-        }
-    }
-
-    fieldset {
-        border: none;
-        padding: 0;
     }
 }

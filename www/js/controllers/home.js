@@ -12,6 +12,8 @@
                     $scope.windowHeight = $window.innerHeight;
                 }
 
+                setWindowWidth();
+
                 angular.element($window).bind('resize', function () {
                     $scope.$apply(function () {
                         setWindowWidth();

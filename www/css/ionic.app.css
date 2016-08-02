@@ -9815,6 +9815,126 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.content-home {
+  text-align: center; }
+  .content-home .home-logo {
+    width: 40%;
+    max-width: 250px;
+    height: auto; }
+  .content-home .home-body {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .content-home .home-body h1 {
+      margin-top: 5px; }
+    .content-home .home-body > div {
+      width: 100%; }
+    .content-home .home-body .button-assertive {
+      width: 100%;
+      max-width: 200px; }
+  .content-home .home-body-item {
+    width: 100%;
+    margin: 0 auto 40px auto; }
+
+.content-report-body {
+  padding: 0;
+  margin: 0; }
+  .content-report-body .ng-submitted .ng-invalid {
+    border-color: #de373f !important; }
+  .content-report-body .report-body-wrapper {
+    background-color: white;
+    padding: 0;
+    margin: 0 0 0 100px; }
+  .content-report-body .report-section {
+    padding: 10px; }
+  .content-report-body .report-footer {
+    background-color: #322f28;
+    padding: 10px 10px;
+    margin: 10px 0 0 0; }
+  .content-report-body .row-report-form {
+    padding: 0;
+    margin: 10px 0; }
+    .content-report-body .row-report-form > .col {
+      padding: 0 5px; }
+  .content-report-body .row-report-form-checkbox-group {
+    margin: 0; }
+    .content-report-body .row-report-form-checkbox-group > .col {
+      padding: 0; }
+  .content-report-body .fieldset {
+    border: none;
+    padding: 0; }
+  .content-report-body .input-label {
+    font-size: 14px;
+    font-weight: 500;
+    width: 100%; }
+    .content-report-body .input-label.required:after {
+      content: "*";
+      font-size: 18px;
+      color: #de373f;
+      line-height: 14px; }
+  .content-report-body .input-label-light {
+    font-weight: normal; }
+  .content-report-body .input-select,
+  .content-report-body .input {
+    font-size: 14px;
+    border: 1px solid #c7c4bc !important;
+    border-radius: 2px;
+    padding: 6px 10px !important;
+    margin: 0;
+    width: 100%;
+    height: 35px; }
+  .content-report-body .input-checkbox {
+    border: none;
+    padding-left: 50px; }
+    .content-report-body .input-checkbox input:before,
+    .content-report-body .input-checkbox .checkbox-icon:before {
+      border-color: #ddd; }
+    .content-report-body .input-checkbox input:checked:before,
+    .content-report-body .input-checkbox input:checked + .checkbox-icon:before {
+      background: #de373f;
+      border-color: #de373f; }
+    .content-report-body .input-checkbox .checkbox {
+      left: 0; }
+
+.content-report-nav {
+  border-right-color: #d8d7d2;
+  border-right-width: 1px;
+  border-right-style: solid;
+  padding-top: 10px;
+  width: 100px;
+  z-index: 500; }
+  .content-report-nav .button-report-nav {
+    border-color: transparent;
+    background-color: transparent;
+    color: #444;
+    padding: 0;
+    margin: 0 auto;
+    line-height: 28px;
+    text-align: center;
+    display: block; }
+    .content-report-nav .button-report-nav:hover {
+      color: #444;
+      text-decoration: none; }
+    .content-report-nav .button-report-nav.active, .content-report-nav .button-report-nav.activated {
+      border-color: transparent;
+      background-color: transparent; }
+    .content-report-nav .button-report-nav .icon {
+      padding: 0;
+      margin: 0 auto;
+      display: block; }
+      .content-report-nav .button-report-nav .icon:before {
+        font-size: 32px; }
+    .content-report-nav .button-report-nav:active, .content-report-nav .button-report-nav:focus, .content-report-nav .button-report-nav.activated, .content-report-nav .button-report-nav.active {
+      color: #de373f; }
+      .content-report-nav .button-report-nav:active .icon, .content-report-nav .button-report-nav:focus .icon, .content-report-nav .button-report-nav.activated .icon, .content-report-nav .button-report-nav.active .icon {
+        color: #de373f; }
+  .content-report-nav ul li {
+    margin-bottom: 25px; }
+
+.list-open-reports {
+  max-width: 400px;
+  margin: 0 auto; }
+
 .canteen .pane {
   background: #ebebe8;
   background: linear-gradient(to bottom, #ebebe8 0%, #c0bfb7 100%); }
@@ -9825,70 +9945,6 @@ a.button {
   .canteen .bar-stable .button .spinner {
     top: 4px; }
 
-.canteen .report-nav {
-  padding-top: 20px; }
-  .canteen .report-nav .button-report-nav {
-    border-color: transparent;
-    background-color: transparent;
-    color: #444;
-    padding: 0;
-    margin: 0 auto;
-    line-height: 28px;
-    text-align: center;
-    display: block; }
-    .canteen .report-nav .button-report-nav:hover {
-      color: #444;
-      text-decoration: none; }
-    .canteen .report-nav .button-report-nav.active, .canteen .report-nav .button-report-nav.activated {
-      border-color: transparent;
-      background-color: transparent; }
-    .canteen .report-nav .button-report-nav .icon {
-      padding: 0;
-      margin: 0 auto;
-      display: block; }
-      .canteen .report-nav .button-report-nav .icon:before {
-        font-size: 32px; }
-    .canteen .report-nav .button-report-nav:active, .canteen .report-nav .button-report-nav:focus, .canteen .report-nav .button-report-nav.activated, .canteen .report-nav .button-report-nav.active {
-      color: #de373f; }
-      .canteen .report-nav .button-report-nav:active .icon, .canteen .report-nav .button-report-nav:focus .icon, .canteen .report-nav .button-report-nav.activated .icon, .canteen .report-nav .button-report-nav.active .icon {
-        color: #de373f; }
-  .canteen .report-nav ul li {
-    margin-bottom: 25px; }
-
-.canteen .report-home {
-  text-align: center; }
-  .canteen .report-home .list-open-reports {
-    max-width: 400px;
-    margin: 0 auto; }
-  .canteen .report-home .report-home-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 600px; }
-    .canteen .report-home .report-home-body h1 {
-      margin-top: 5px; }
-    .canteen .report-home .report-home-body > div {
-      width: 100%; }
-    .canteen .report-home .report-home-body .button-assertive {
-      width: 100%;
-      max-width: 200px; }
-  .canteen .report-home .report-home-body-item {
-    width: 100%;
-    margin: 0 auto 40px auto; }
-  .canteen .report-home .report-home-body-item-top {
-    align-self: flex-start; }
-
-.canteen .report-home-logo {
-  width: 40%;
-  max-width: 250px;
-  height: auto; }
-
-.canteen .report-body-wrapper {
-  background-color: white; }
-
-.canteen .report-body {
-  padding: 0 20px; }
-
 .canteen .button .spinner {
   pointer-events: none;
   position: relative;
@@ -9896,32 +9952,3 @@ a.button {
   .canteen .button .spinner svg {
     width: 16px !important;
     height: 16px !important; }
-
-.canteen .form-group .item-input {
-  border: none;
-  padding: 0; }
-
-.canteen .report-footer {
-  background-color: #322f28;
-  padding: 10px 20px;
-  margin-top: 20px; }
-
-.canteen .input {
-  border: 1px solid #c7c4bc !important;
-  border-radius: 2px;
-  padding: 15px 10px !important; }
-  .ng-submitted .canteen .input.ng-invalid {
-    border-color: #de373f !important; }
-
-.canteen .input-label {
-  font-size: 14px;
-  font-weight: 500; }
-  .canteen .input-label.required:after {
-    content: "*";
-    font-size: 18px;
-    color: #de373f;
-    line-height: 14px; }
-
-.canteen fieldset {
-  border: none;
-  padding: 0; }
