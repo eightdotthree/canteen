@@ -5,7 +5,7 @@
      */
     angular.module('canteenreport')
         .controller('ReportController',
-            function ($scope, $state, $timeout, $ionicPopup, $ionicViewSwitcher, US_STATES) {
+            function ($scope, $state, $timeout, $location, $ionicPopup, $ionicViewSwitcher, $ionicScrollDelegate, US_STATES) {
                 console.group('ReportController');
 
                 $scope.titlePrefix = 'New';
@@ -50,8 +50,19 @@
                 };
 
                 $scope.goToSection = function (section) {
-                    console.group('goTo');
+                    console.group('goTo: ' + section);
+
+                    $location.hash(section);
                     $scope.activeSection = section;
+
+                    switch (section) {
+                        case 'incident' :
+                            $ionicScrollDelegate.scrollTop(true);
+                            break;
+                        default :
+                            $ionicScrollDelegate.anchorScroll(true);
+                    }
+
                     console.groupEnd();
                 };
 

@@ -59,10 +59,10 @@
           <li>
             <button
               class="button button-report-nav"
-              ng-class="{ 'active': activeSection === 'finish' }"
-              ng-click="goToSection('finish')">
+              ng-class="{ 'active': activeSection === 'end' }"
+              ng-click="goToSection('end')">
 
-              <i class="icon ion-checkmark"></i>
+              <i class="icon ion-ios-checkmark"></i>
               Finish
             </button>
           </li>
@@ -89,7 +89,7 @@
             <section class="report-section">
 
               <!-- incident -->
-              <fieldset class="fieldset">
+              <fieldset id="incident" class="fieldset">
 
                 <!-- unit number -->
                 <div class="row row-report-form">
@@ -244,31 +244,31 @@
 
                     <div class="row row-report-form row-report-form-group">
                       <div class="col col-50">
-                        <ion-checkbox class="input-checkbox" ng-model="incidentTypeFire">Fire/ Alarm/ Companies</ion-checkbox>
+                        <ion-checkbox ng-model="incidentTypeFire">Fire/ Alarm/ Companies</ion-checkbox>
                       </div>
 
                       <div class="col col-50">
-                        <ion-checkbox class="input-checkbox" ng-model="incidentTypeFlood">Flood</ion-checkbox>
-                      </div>
-                    </div>
-
-                    <div class="row row-report-form row-report-form-group">
-                      <div class="col col-50">
-                        <ion-checkbox class="input-checkbox" ng-model="incidentTypeHazmat">Hazmat</ion-checkbox>
-                      </div>
-
-                      <div class="col col-50">
-                        <ion-checkbox class="input-checkbox" ng-model="incidentTypeSpecial">Special Event</ion-checkbox>
+                        <ion-checkbox ng-model="incidentTypeFlood">Flood</ion-checkbox>
                       </div>
                     </div>
 
                     <div class="row row-report-form row-report-form-group">
                       <div class="col col-50">
-                        <ion-checkbox class="input-checkbox" ng-model="incidentTypeMaintenence">Maintenence</ion-checkbox>
+                        <ion-checkbox ng-model="incidentTypeHazmat">Hazmat</ion-checkbox>
                       </div>
 
                       <div class="col col-50">
-                        <ion-checkbox class="input-checkbox" ng-model="incidentTypeOther">Other</ion-checkbox>
+                        <ion-checkbox ng-model="incidentTypeSpecial">Special Event</ion-checkbox>
+                      </div>
+                    </div>
+
+                    <div class="row row-report-form row-report-form-group">
+                      <div class="col col-50">
+                        <ion-checkbox ng-model="incidentTypeMaintenence">Maintenence</ion-checkbox>
+                      </div>
+
+                      <div class="col col-50">
+                        <ion-checkbox ng-model="incidentTypeOther">Other</ion-checkbox>
                       </div>
                     </div>
                   </div>
@@ -277,7 +277,7 @@
               </fieldset>
 
               <!-- team members -->
-              <fieldset class="fieldset">
+              <fieldset id="team" class="fieldset">
 
                 <!-- salvation army team, driver -->
                 <div class="row row-report-form">
@@ -378,7 +378,7 @@
               </fieldset>
 
               <!-- services -->
-              <fieldset class="fieldset">
+              <fieldset id="services" class="fieldset">
 
                 <!-- counseling, repeat -->
                 <div class="row row-report-form">
@@ -484,7 +484,7 @@
               </fieldset>
 
               <!-- end -->
-              <fieldset class="fieldset">
+              <fieldset id="end" class="fieldset">
 
                 <!-- start -->
                 <div class="row row-report-form">
@@ -528,7 +528,7 @@
                       Fuel Level
                     </label>
 
-                    <div class="item range item-no-border">
+                    <div class="item range">
                       <i class="icon ion-sad-outline"></i>
 
                       <input
@@ -552,7 +552,7 @@
                       Water Tank Level
                     </label>
 
-                    <div class="item range item-no-border">
+                    <div class="item range">
                       <i class="icon ion-sad-outline"></i>
 
                       <input

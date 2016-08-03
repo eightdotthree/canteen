@@ -9851,7 +9851,7 @@ a.button {
     background-color: #322f28;
     font-size: 16px;
     color: white;
-    padding: 10px 10px;
+    padding: 10px 10px 275px;
     margin: 10px 0 0 0; }
   .content-report-body .row-report-form {
     padding: 0;
@@ -9893,19 +9893,20 @@ a.button {
     margin: 0;
     width: 100%;
     height: 35px; }
-  .content-report-body .input-checkbox {
+  .content-report-body .item-checkbox {
     border: none;
     padding: 10px 10px 10px 50px; }
-    .content-report-body .input-checkbox input:before,
-    .content-report-body .input-checkbox .checkbox-icon:before {
+    .content-report-body .item-checkbox input:before,
+    .content-report-body .item-checkbox .checkbox-icon:before {
       border-color: #ddd; }
-    .content-report-body .input-checkbox input:checked:before,
-    .content-report-body .input-checkbox input:checked + .checkbox-icon:before {
+    .content-report-body .item-checkbox input:checked:before,
+    .content-report-body .item-checkbox input:checked + .checkbox-icon:before {
       background: #de373f;
       border-color: #de373f; }
-    .content-report-body .input-checkbox .checkbox {
+    .content-report-body .item-checkbox .checkbox {
       left: 0; }
   .content-report-body .range {
+    border: none;
     padding: 0; }
     .content-report-body .range input {
       margin-top: 0;

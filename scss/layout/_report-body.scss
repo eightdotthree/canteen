@@ -22,7 +22,7 @@
         background-color: $dark;
         font-size: 16px;
         color: white;
-        padding: 10px $report-body-padding;
+        padding: 10px $report-body-padding 275px;
         margin: $report-body-padding 0 0 0;
     }
 
@@ -90,7 +90,7 @@
         height: 35px;
     }
 
-    .input-checkbox {
+    .item-checkbox {
         @include checkbox-style($checkbox-off-border-default, $checkbox-on-bg-assertive, $checkbox-off-border-assertive);
         border: none;
         padding: 10px 10px 10px 50px;
@@ -101,6 +101,7 @@
     }
 
     .range {
+        border: none;
         padding: 0;
 
         input {
