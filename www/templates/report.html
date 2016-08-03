@@ -28,7 +28,6 @@
               class="button button-report-nav"
               ng-class="{ 'active': activeSection === 'incident' }"
               ng-click="goToSection('incident')">
-
               <i class="icon ion-ios-flag"></i>
               Incident
             </button>
@@ -39,7 +38,6 @@
               class="button button-report-nav"
               ng-class="{ 'active': activeSection === 'team' }"
               ng-click="goToSection('team')">
-
               <i class="icon ion-ios-people"></i>
               Team
             </button>
@@ -50,7 +48,6 @@
               class="button button-report-nav"
               ng-class="{ 'active': activeSection === 'services' }"
               ng-click="goToSection('services')">
-
               <i class="icon ion-ios-copy"></i>
               Services
             </button>
@@ -61,7 +58,6 @@
               class="button button-report-nav"
               ng-class="{ 'active': activeSection === 'end' }"
               ng-click="goToSection('end')">
-
               <i class="icon ion-ios-checkmark"></i>
               Finish
             </button>
@@ -139,7 +135,6 @@
                       name="incident-inroute"
                       class="input"
                       type="datetime-local"
-                      placeholder="mm/dd/yyyy"
                       required
                       ng-model="incidentInroute" />
                   </div>
@@ -155,7 +150,7 @@
                       name="incident-onscene"
                       class="input"
                       type="datetime-local"
-                      placeholder="mm/dd/yyyy"
+                      required
                       ng-model="incidentOnscene" />
                   </div>
                 </div>
@@ -351,7 +346,6 @@
                           name="team-refferal-name"
                           class="input"
                           type="text"
-                          required
                           ng-model="teamRefferalName" />
                       </div>
                     </div>
@@ -368,7 +362,6 @@
                           name="team-refferal-phone"
                           class="input"
                           type="tel"
-                          required
                           ng-model="teamRefferalPhone" />
                       </div>
                     </div>
@@ -486,7 +479,7 @@
               <!-- end -->
               <fieldset id="end" class="fieldset">
 
-                <!-- start -->
+                <!-- end -->
                 <div class="row row-report-form">
                   <div class="col col-33">
                     <label for="end-time" class="input-label required">
@@ -515,8 +508,9 @@
                       id="end-total-mileage"
                       name="end-total-mileage"
                       type="number"
-                      size="10"
+                      size="5"
                       class="input"
+                      required
                       ng-model="endTotalMileage" />
                   </div>
                 </div>

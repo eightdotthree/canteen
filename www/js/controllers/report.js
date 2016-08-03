@@ -4,9 +4,9 @@
     /**
      */
     angular.module('canteenreport')
-        .controller('ReportController',
-            function ($scope, $state, $timeout, $location, $ionicPopup, $ionicViewSwitcher, $ionicScrollDelegate, US_STATES) {
-                console.group('ReportController');
+        .controller('reportController',
+            function ($scope, $state, $timeout, $location, $ionicPopup, $ionicViewSwitcher, $ionicScrollDelegate, reportService, US_STATES) {
+                console.group('reportController');
 
                 $scope.titlePrefix = 'New';
                 $scope.syncing = false;
@@ -18,7 +18,9 @@
                  */
                 $scope.sync = function () {
                     console.group('sync');
+
                     $scope.syncing = true;
+                    reportService.sync();
 
                     $timeout(function () {
                         $scope.syncing = false;
@@ -71,7 +73,15 @@
                  */
                 $scope.save = function (form) {
                     console.group('save');
-                    console.info(form.$valid);
+                    console.info(form);
+
+                    var valid = form.$valid;
+                    console.info('valid: ' + valid);
+
+                    if (valid) {
+                        reportService.save();
+                    }
+
                     console.groupEnd();
                 };
 

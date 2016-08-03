@@ -4,9 +4,9 @@
     /**
      */
     angular.module('canteenreport')
-        .controller('HomeController',
+        .controller('homeController',
             function ($scope, $window) {
-                console.group('HomeController');
+                console.group('homeController');
 
                 function setWindowWidth () {
                     $scope.windowHeight = $window.innerHeight;

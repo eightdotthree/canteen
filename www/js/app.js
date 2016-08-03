@@ -43,12 +43,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('index', {
       url: '/',
       templateUrl: 'home.html',
-      controller: 'HomeController'
+      controller: 'homeController'
     })
     .state('report', {
       url: '/report',
       templateUrl: 'templates/report.html',
-      controller: 'ReportController'
+      controller: 'reportController'
     });
 
   $urlRouterProvider.otherwise('/');

@@ -9286,7 +9286,7 @@ a.button {
 /* change to column and add some margin */
 /* to any columns in the row for clearity */
 @media (max-width: 567px) {
-  .responsive-sm {
+  .responsive-sm, .content-report-body .row {
     -webkit-box-direction: normal;
     -moz-box-direction: normal;
     -webkit-box-orient: vertical;
@@ -9294,7 +9294,7 @@ a.button {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column; }
-    .responsive-sm .col, .responsive-sm .col-10, .responsive-sm .col-20, .responsive-sm .col-25, .responsive-sm .col-33, .responsive-sm .col-34, .responsive-sm .col-50, .responsive-sm .col-66, .responsive-sm .col-67, .responsive-sm .col-75, .responsive-sm .col-80, .responsive-sm .col-90 {
+    .responsive-sm .col, .content-report-body .row .col, .responsive-sm .col-10, .content-report-body .row .col-10, .responsive-sm .col-20, .content-report-body .row .col-20, .responsive-sm .col-25, .content-report-body .row .col-25, .responsive-sm .col-33, .content-report-body .row .col-33, .responsive-sm .col-34, .content-report-body .row .col-34, .responsive-sm .col-50, .content-report-body .row .col-50, .responsive-sm .col-66, .content-report-body .row .col-66, .responsive-sm .col-67, .content-report-body .row .col-67, .responsive-sm .col-75, .content-report-body .row .col-75, .responsive-sm .col-80, .content-report-body .row .col-80, .responsive-sm .col-90, .content-report-body .row .col-90 {
       -webkit-box-flex: 1;
       -webkit-flex: 1;
       -moz-box-flex: 1;
@@ -9846,13 +9846,13 @@ a.button {
     padding: 0;
     margin: 0 0 0 100px; }
   .content-report-body .report-section {
-    padding: 10px; }
+    padding: 20px; }
   .content-report-body .report-footer {
     background-color: #322f28;
     font-size: 16px;
     color: white;
-    padding: 10px 10px 275px;
-    margin: 10px 0 0 0; }
+    padding: 10px 20px 275px;
+    margin: 20px 0 0 0; }
   .content-report-body .row-report-form {
     padding: 0;
     margin: 15px 0; }
@@ -9874,7 +9874,8 @@ a.button {
   .content-report-body .input-label {
     font-size: 16px;
     font-weight: 500;
-    width: 100%; }
+    width: 100%;
+    padding-right: 0; }
     .content-report-body .input-label.required:after {
       content: "*";
       font-size: 18px;
@@ -9918,7 +9919,7 @@ a.button {
   border-right-color: #d8d7d2;
   border-right-width: 1px;
   border-right-style: solid;
-  padding-top: 10px;
+  padding-top: 20px;
   width: 100px;
   z-index: 500; }
   .content-report-nav .button-report-nav {

@@ -8,6 +8,10 @@
         }
     }
 
+    .row {
+        @extend .responsive-sm;
+    }
+
     .report-body-wrapper {
         background-color: white;
         padding: 0;
@@ -60,6 +64,7 @@
         font-size: 16px;
         font-weight: $headings-font-weight;
         width: 100%;
+        padding-right: 0;
 
         &.required {
             &:after {
