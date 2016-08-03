@@ -26,24 +26,26 @@
 
     .row-report-form {
         padding: 0;
-        margin: 10px 0;
+        margin: 15px 0;
 
         > .col {
             padding: 0 ($grid-padding-width / 2);
         }
     }
 
-    .row-report-form-checkbox-group {
+    .row-report-form-group {
         margin: 0;
 
         > .col {
-            padding: 0;
+            padding-left: 0;
         }
     }
 
     .fieldset {
         border: none;
-        padding: 0;
+        border-bottom: 1px solid $stable-light;
+        padding: 0 0 15px 0;
+        margin: 0 0 15px 0;
     }
 
     .input-label {
@@ -61,11 +63,14 @@
         }
     }
 
+    .input-label-light-parent {
+        padding-bottom: 0;
+    }
+
     .input-label-light {
         font-weight: normal;
     }
 
-    .input-select,
     .input {
         font-size: 14px;
         border: 1px solid #c7c4bc !important;
@@ -79,10 +84,14 @@
     .input-checkbox {
         @include checkbox-style($checkbox-off-border-default, $checkbox-on-bg-assertive, $checkbox-off-border-assertive);
         border: none;
-        padding-left: 50px;
+        padding: 10px 10px 10px 50px;
 
         .checkbox {
             left: 0;
         }
+    }
+
+    .input-textarea {
+        height: auto;
     }
 }

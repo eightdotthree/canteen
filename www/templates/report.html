@@ -162,71 +162,76 @@
 
                 <!-- address -->
                 <div class="row row-report-form">
-                  <div class="col col-40">
-                    <label class="input-label">
+                  <div class="col">
+                    <label class="input-label input-label-light-parent">
                       Location of incident
                     </label>
 
-                    <label for="incident-address" class="input-label input-label-light required">
-                      Address
-                    </label>
+                    <!-- address -->
+                    <div class="row row-report-form row-report-form-group">
+                      <div class="col col-50">
+                        <label for="incident-address" class="input-label input-label-light required">
+                          Address
+                        </label>
 
-                    <input
-                      id="incident-address"
-                      name="incident-address"
-                      class="input"
-                      type="text"
-                      required
-                      ng-model="incidentAddress" />
-                  </div>
-                </div>
+                        <input
+                          id="incident-address"
+                          name="incident-address"
+                          class="input"
+                          type="text"
+                          required
+                          ng-model="incidentAddress" />
+                      </div>
+                    </div>
 
-                <!-- city, state, zipcode -->
-                <div class="row row-report-form">
+                    <!-- city, state, zipcode -->
+                    <div class="row row-report-form row-report-form-group">
 
-                  <!-- city -->
-                  <div class="col col-33">
-                    <label for="incident-city" class="input-label input-label-light required">
-                      City
-                    </label>
+                      <!-- city -->
+                      <div class="col col-33">
+                        <label for="incident-city" class="input-label input-label-light required">
+                          City
+                        </label>
 
-                    <input
-                      id="incident-city"
-                      name="incident-city"
-                      class="input"
-                      type="text"
-                      required
-                      ng-model="incidentCity" />
-                  </div>
+                        <input
+                          id="incident-city"
+                          name="incident-city"
+                          class="input"
+                          type="text"
+                          required
+                          ng-model="incidentCity" />
+                      </div>
 
-                  <!-- state -->
-                  <div class="col col-20">
-                    <label for="incident-state" class="input-label input-label-light required">
-                      State
-                    </label>
+                      <!-- state -->
+                      <div class="col col-20">
+                        <label for="incident-state" class="input-label input-label-light required">
+                          State
+                        </label>
 
-                    <select
-                      id="incident-state"
-                      name="incident-state"
-                      class="input-select"
-                      required
-                      ng-model="incidentState"
-                      ng-options="option.abbr for option in states track by option.abbr">
-                    </select>
-                  </div>
+                        <select
+                          id="incident-state"
+                          name="incident-state"
+                          class="input input-select"
+                          required
+                          ng-model="incidentState"
+                          ng-options="option.abbr for option in states track by option.abbr">
+                        </select>
+                      </div>
 
-                  <!-- zipcode -->
-                  <div class="col col-20">
-                    <label for="incident-zipcode" class="input-label input-label-light">
-                      Zip
-                    </label>
+                      <!-- zipcode -->
+                      <div class="col col-20">
+                        <label for="incident-zipcode" class="input-label input-label-light">
+                          Zip
+                        </label>
 
-                    <input
-                      id="incident-zipcode"
-                      name="incident-zipcode"
-                      class="input"
-                      type="number"
-                      ng-model="incidentZipcode" />
+                        <input
+                          id="incident-zipcode"
+                          name="incident-zipcode"
+                          class="input"
+                          type="number"
+                          ng-model="incidentZipcode" />
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -237,9 +242,9 @@
                       Type of call
                     </label>
 
-                    <div class="row row-report-form row-report-form-checkbox-group">
+                    <div class="row row-report-form row-report-form-group">
                       <div class="col col-50">
-                        <ion-checkbox class="input-checkbox" ng-model="incidentTypeFire">Fire/Alarm/Companies</ion-checkbox>
+                        <ion-checkbox class="input-checkbox" ng-model="incidentTypeFire">Fire/ Alarm/ Companies</ion-checkbox>
                       </div>
 
                       <div class="col col-50">
@@ -247,7 +252,7 @@
                       </div>
                     </div>
 
-                    <div class="row row-report-form row-report-form-checkbox-group">
+                    <div class="row row-report-form row-report-form-group">
                       <div class="col col-50">
                         <ion-checkbox class="input-checkbox" ng-model="incidentTypeHazmat">Hazmat</ion-checkbox>
                       </div>
@@ -257,7 +262,7 @@
                       </div>
                     </div>
 
-                    <div class="row row-report-form row-report-form-checkbox-group">
+                    <div class="row row-report-form row-report-form-group">
                       <div class="col col-50">
                         <ion-checkbox class="input-checkbox" ng-model="incidentTypeMaintenence">Maintenence</ion-checkbox>
                       </div>
@@ -267,10 +272,219 @@
                       </div>
                     </div>
                   </div>
-
                 </div>
 
               </fieldset>
+
+              <!-- team members -->
+              <fieldset class="fieldset">
+
+                <!-- salvation army team, driver -->
+                <div class="row row-report-form">
+                  <div class="col">
+                    <label class="input-label input-label-light-parent">
+                      Salvation Army team
+                    </label>
+
+                    <!-- driver -->
+                    <div class="row row-report-form row-report-form-group">
+                      <div class="col col-50">
+                        <label class="input-label input-label-light required">
+                          Driver
+                        </label>
+
+                        <input
+                          id="team-member-driver"
+                          name="team-member-driver"
+                          type="text"
+                          class="input"
+                          required
+                          ng-model="teamMemberDriver" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- team member repeat -->
+                <div class="row row-report-form">
+                  <div class="col col-40">
+                    <label class="input-label input-label-light">
+                      Team member
+                    </label>
+
+                    <input
+                      id="team-member"
+                      name="team-member"
+                      type="text"
+                      class="input"
+                      ng-model="teamMember" />
+                  </div>
+                </div>
+
+                <!-- add team member button -->
+                <div class="row row-report-form">
+                  <div class="col">
+                    <button
+                      class="button button-small button-assertive"
+                      ng-click="addTeamMember()">
+                      Add Team Member
+                    </button>
+                  </div>
+                </div>
+
+                <!-- red cross referral -->
+                <div class="row row-report-form">
+                  <div class="col">
+                    <label class="input-label input-label-light-parent">
+                      Red Cross Referral
+                    </label>
+
+                    <!-- name -->
+                    <div class="row row-report-form row-report-form-group">
+                      <div class="col col-40">
+                        <label for="team-refferal-name" class="input-label input-label-light">
+                          Name
+                        </label>
+
+                        <input
+                          id="team-refferal-name"
+                          name="team-refferal-name"
+                          class="input"
+                          type="text"
+                          required
+                          ng-model="teamRefferalName" />
+                      </div>
+                    </div>
+
+                    <!-- phone number -->
+                    <div class="row row-report-form row-report-form-group">
+                      <div class="col col-40">
+                        <label for="team-refferal-phone" class="input-label input-label-light">
+                          Phone Number
+                        </label>
+
+                        <input
+                          id="team-refferal-phone"
+                          name="team-refferal-phone"
+                          class="input"
+                          type="tel"
+                          required
+                          ng-model="teamRefferalPhone" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </fieldset>
+
+              <!-- services -->
+              <fieldset class="fieldset">
+
+                <!-- counseling -->
+                <div class="row row-report-form">
+                  <div class="col">
+                    <label class="input-label input-label-light-parent">
+                      Counseling/ Prayer
+                    </label>
+
+                    <!-- repeat -->
+                    <span>
+                      <!-- administer -->
+                      <div class="row row-report-form row-report-form-group">
+                        <div class="col col-50">
+                          <label for="services-counseling-administer" class="input-label input-label-light">
+                            Administer
+                          </label>
+
+                          <input
+                            id="services-counseling-administer"
+                            name="services-counseling-administer"
+                            class="input"
+                            type="text"
+                            ng-model="servicesCounselingAdminister" />
+                        </div>
+                      </div>
+
+                      <!-- individual -->
+                      <div class="row row-report-form row-report-form-group">
+                        <div class="col col-50">
+                          <label for="services-counseling-individual" class="input-label input-label-light">
+                            Individual
+                          </label>
+
+                          <input
+                            id="services-counseling-individual"
+                            name="services-counseling-individual"
+                            class="input"
+                            type="text"
+                            ng-model="servicesCounselingIndividual" />
+                        </div>
+                      </div>
+
+                      <!-- reason -->
+                      <div class="row row-report-form row-report-form-group">
+                        <div class="col col-50">
+                          <label for="services-counseling-reason" class="input-label input-label-light">
+                            Reason
+                          </label>
+
+                          <input
+                            id="services-counseling-reason"
+                            name="services-counseling-reason"
+                            class="input"
+                            type="text"
+                            ng-model="servicesCounselingReason" />
+                        </div>
+                      </div>
+
+                      <!-- phone -->
+                      <div class="row row-report-form row-report-form-group">
+                        <div class="col col-50">
+                          <label for="services-counseling-phone-number" class="input-label input-label-light">
+                            Phone Number
+                          </label>
+
+                          <input
+                            id="services-counseling-phone-number"
+                            name="services-counseling-phone-number"
+                            class="input"
+                            type="text"
+                            ng-model="servicesCounselingPhoneNumber" />
+                        </div>
+                      </div>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- add team member button -->
+                <div class="row row-report-form">
+                  <div class="col">
+                    <button
+                      class="button button-small button-assertive"
+                      ng-click="addCounseling()">
+                      Add More
+                    </button>
+                  </div>
+                </div>
+
+                <div class="row row-report-form">
+                  <div class="col">
+                    <label for="services-notes" class="input-label">
+                      Notes
+                    </label>
+
+                    <textarea
+                      id="services-notes"
+                      name="services-notes"
+                      class="input input-textarea"
+                      rows="8"
+                      ng-model="servicesNotes">
+                    </textarea>
+                  </div>
+                </div>
+
+              </fieldset>
+
             </section>
 
             <footer class="report-footer">
