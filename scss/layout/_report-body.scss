@@ -20,6 +20,8 @@
 
     .report-footer {
         background-color: $dark;
+        font-size: 16px;
+        color: white;
         padding: 10px $report-body-padding;
         margin: $report-body-padding 0 0 0;
     }
@@ -46,10 +48,16 @@
         border-bottom: 1px solid $stable-light;
         padding: 0 0 15px 0;
         margin: 0 0 15px 0;
+
+        &:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
     }
 
     .input-label {
-        font-size: $font-size-base;
+        font-size: 16px;
         font-weight: $headings-font-weight;
         width: 100%;
 
@@ -69,6 +77,7 @@
 
     .input-label-light {
         font-weight: normal;
+        font-size: $font-size-base;
     }
 
     .input {
@@ -88,6 +97,15 @@
 
         .checkbox {
             left: 0;
+        }
+    }
+
+    .range {
+        padding: 0;
+
+        input {
+            margin-top: 0;
+            margin-bottom: 0;
         }
     }
 

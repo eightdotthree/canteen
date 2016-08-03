@@ -306,7 +306,7 @@
                 </div>
 
                 <!-- team member repeat -->
-                <div class="row row-report-form">
+                <div class="row row-report-form" ng-repeat="teamMember in teamMembers">
                   <div class="col col-40">
                     <label class="input-label input-label-light">
                       Team member
@@ -459,11 +459,117 @@
                     <button
                       class="button button-small button-assertive"
                       ng-click="addCounseling()">
-                      Add More
+                      Add Another
                     </button>
                   </div>
                 </div>
 
+                <!-- notes -->
+                <div class="row row-report-form">
+                  <div class="col">
+                    <label for="services-notes" class="input-label">
+                      Notes
+                    </label>
+
+                    <textarea
+                      id="services-notes"
+                      name="services-notes"
+                      class="input input-textarea"
+                      rows="8"
+                      ng-model="servicesNotes">
+                    </textarea>
+                  </div>
+                </div>
+
+              </fieldset>
+
+              <!-- end -->
+              <fieldset class="fieldset">
+
+                <!-- start -->
+                <div class="row row-report-form">
+                  <div class="col col-33">
+                    <label for="end-time" class="input-label required">
+                      End
+                    </label>
+
+                    <input
+                      id="end-time"
+                      name="end-time"
+                      type="datetime-local"
+                      class="input"
+                      placeholder="mm/dd/yyyy"
+                      required
+                      ng-model="endTime" />
+                  </div>
+                </div>
+
+                <!-- mileage -->
+                <div class="row row-report-form">
+                  <div class="col col-20">
+                    <label for="end-total-mileage" class="input-label required">
+                      Total Mileage
+                    </label>
+
+                    <input
+                      id="end-total-mileage"
+                      name="end-total-mileage"
+                      type="number"
+                      size="10"
+                      class="input"
+                      ng-model="endTotalMileage" />
+                  </div>
+                </div>
+
+                <!-- fuel level -->
+                <div class="row row-report-form">
+                  <div class="col">
+                    <label for="end-fuel-level" class="input-label required">
+                      Fuel Level
+                    </label>
+
+                    <div class="item range item-no-border">
+                      <i class="icon ion-sad-outline"></i>
+
+                      <input
+                        id="end-fuel-level"
+                        name="end-fuel-level"
+                        type="range"
+                        min="0"
+                        max="100"
+                        required
+                        ng-model="endFuellevel" />
+
+                      <i class="icon ion-happy-outline"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- water level -->
+                <div class="row row-report-form">
+                  <div class="col">
+                    <label for="end-water-level" class="input-label required">
+                      Water Tank Level
+                    </label>
+
+                    <div class="item range item-no-border">
+                      <i class="icon ion-sad-outline"></i>
+
+                      <input
+                        id="end-water-level"
+                        name="end-water-level"
+                        type="range"
+                        min="0"
+                        max="100"
+                        required
+                        ng-model="endWaterlevel" />
+
+                      <i class="icon ion-happy-outline"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- notes -->
                 <div class="row row-report-form">
                   <div class="col">
                     <label for="services-notes" class="input-label">
@@ -487,6 +593,11 @@
             <footer class="report-footer">
               <div class="row row-report-form">
                 <div class="col">
+
+                  <p class="form-message">
+                    <strong>Ready to submit?</strong> Please check all fields before submitting.
+                  </p>
+
                   <button
                     class="button button-assertive"
                     type="submit">

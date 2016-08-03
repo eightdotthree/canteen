@@ -9849,6 +9849,8 @@ a.button {
     padding: 10px; }
   .content-report-body .report-footer {
     background-color: #322f28;
+    font-size: 16px;
+    color: white;
     padding: 10px 10px;
     margin: 10px 0 0 0; }
   .content-report-body .row-report-form {
@@ -9865,8 +9867,12 @@ a.button {
     border-bottom: 1px solid #ebebe8;
     padding: 0 0 15px 0;
     margin: 0 0 15px 0; }
+    .content-report-body .fieldset:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0; }
   .content-report-body .input-label {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     width: 100%; }
     .content-report-body .input-label.required:after {
@@ -9877,7 +9883,8 @@ a.button {
   .content-report-body .input-label-light-parent {
     padding-bottom: 0; }
   .content-report-body .input-label-light {
-    font-weight: normal; }
+    font-weight: normal;
+    font-size: 14px; }
   .content-report-body .input {
     font-size: 14px;
     border: 1px solid #c7c4bc !important;
@@ -9898,6 +9905,11 @@ a.button {
       border-color: #de373f; }
     .content-report-body .input-checkbox .checkbox {
       left: 0; }
+  .content-report-body .range {
+    padding: 0; }
+    .content-report-body .range input {
+      margin-top: 0;
+      margin-bottom: 0; }
   .content-report-body .input-textarea {
     height: auto; }
 
@@ -9957,3 +9969,6 @@ a.button {
   .canteen .button .spinner svg {
     width: 16px !important;
     height: 16px !important; }
+
+.canteen .item-no-border {
+  border: none; }
