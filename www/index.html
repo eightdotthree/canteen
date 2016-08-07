@@ -53,12 +53,22 @@
               </div>
 
               <div class="home-body-item">
-                <div class="list list-open-reports">
+                <ion-spinner ng-show="loading"></ion-spinner>
+
+                <div
+                  class="list list-open-reports"
+                  ng-show="unsubmittedReports && !loading">
+
                   <div class="item item-divider">
-                    Open Reports
+                    Unsubmitted Reports
                   </div>
-                  <a class="item" ui-sref="report">
-                    Butterfinger
+
+                  <a
+                    class="item"
+                    ui-sref="report({ id: report.id })"
+                    ng-repeat="report in unsubmittedReports">
+
+                    {{ report.date }}
                   </a>
                 </div>
               </div>

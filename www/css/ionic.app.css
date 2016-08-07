@@ -9855,9 +9855,9 @@ a.button {
     margin: 20px 0 0 0; }
   .content-report-body .row-report-form {
     padding: 0;
-    margin: 15px 0; }
-    .content-report-body .row-report-form > .col {
-      padding: 0 5px; }
+    margin: 10px 0; }
+  .content-report-body .row-report-form-button {
+    margin-top: -10px; }
   .content-report-body .row-report-form-group {
     margin: 0; }
     .content-report-body .row-report-form-group > .col {
@@ -9967,10 +9967,14 @@ a.button {
 .canteen .button .spinner {
   pointer-events: none;
   position: relative;
-  top: 4px; }
+  top: 2px; }
   .canteen .button .spinner svg {
     width: 16px !important;
     height: 16px !important; }
+
+.canteen .button.button-assertive .spinner {
+  stroke: white;
+  fill: white; }
 
 .canteen .item-no-border {
   border: none; }

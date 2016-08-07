@@ -5,8 +5,6 @@ var app = angular.module('canteenreport', ['ionic']);
 
 app.run(function ($ionicPlatform) {
   $ionicPlatform.ready(function () {
-    console.group('ionicPlatform.ready');
-
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -27,18 +25,12 @@ app.run(function ($ionicPlatform) {
     });
 
     push.register(function (token) {
-      console.group('Ionic Push:');
-        console.info('device token: ' + token.token);
-      console.groupEnd();
+      console.info('device token: ' + token.token);
     });
-
-    console.groupEnd();
   });
 });
 
 app.config(function ($stateProvider, $urlRouterProvider) {
-  console.group('config');
-
   $stateProvider
     .state('index', {
       url: '/',
@@ -46,14 +38,10 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       controller: 'homeController'
     })
     .state('report', {
-      url: '/report',
+      url: '/report/:id',
       templateUrl: 'templates/report.html',
       controller: 'reportController'
     });
 
   $urlRouterProvider.otherwise('/');
-
-  console.info($stateProvider);
-  console.groupEnd();
-
 });

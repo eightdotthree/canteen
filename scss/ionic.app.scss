@@ -66,11 +66,18 @@ $report-nav-width:                  100px;
         .spinner {
             pointer-events: none;
             position: relative;
-            top: 4px;
+            top: 2px;
 
             svg {
                 width: $button-bar-button-icon-size !important;
                 height: $button-bar-button-icon-size !important;
+            }
+        }
+
+        &.button-assertive {
+            .spinner {
+                stroke: white;
+                fill: white;
             }
         }
     }
