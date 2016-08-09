@@ -30,6 +30,12 @@
     <script id="home.html" type="text/ng-template">
       <ion-view view-title="Canteen Report">
 
+        <ion-nav-buttons side="primary">
+          <button class="button" ng-click="deleteLocalReports()">
+            Delete Local Reports
+          </button>
+        </ion-nav-buttons>
+
         <ion-nav-buttons side="secondary">
           <button class="button" nav-direction="forward" ui-sref="report">
             New Report
@@ -68,7 +74,7 @@
                     ui-sref="report({ id: report.id })"
                     ng-repeat="report in unsubmittedReports">
 
-                    {{ report.date }}
+                    {{ report.incidentStart | date: 'medium' }}
                   </a>
                 </div>
               </div>
@@ -79,6 +85,8 @@
         </ion-content>
       </ion-view>
     </script>
+
+    <script src="lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
 
     <script src="js/constants/us-states.js"></script>
 

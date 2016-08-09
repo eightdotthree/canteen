@@ -9,19 +9,24 @@
                 console.group('reportController');
                 console.info($stateParams);
 
+                $scope.reportModel = {};
+
+                function init () {
+                    if ($scope.id) {
+                        getReport();
+                    } else {
+                        newReport();
+                    }
+                }
+
                 function goBack () {
                     $ionicViewSwitcher.nextDirection('back'); // 'forward', 'back', etc.
                     $state.go('index');
                 }
 
-                $scope.id = $stateParams.id;
-
-                $scope.titlePrefix = 'New';
-                $scope.syncing = false;
-                $scope.activeSection = 'incident';
-                $scope.states = US_STATES;
-
-                $scope.getReport = function () {
+                /**
+                 */
+                function getReport () {
                     console.group('getReport');
 
                     $ionicLoading.show({
@@ -34,7 +39,7 @@
                             console.info(resp);
 
                             $ionicLoading.hide();
-                            $scope.incidentUnitNumber = resp.unitNumber;
+                            $scope.reportModel = resp;
                         })
                         .catch(function (resp) {
                             console.info('catch');
@@ -43,13 +48,33 @@
                         .finally(function () {
                             console.groupEnd();
                         });
-                };
+                }
+
+                /**
+                 *
+                 */
+                function newReport () {
+                    console.group('newReport');
+
+                    $scope.reportModel = reportService.newReport();
+
+                    console.groupEnd();
+                }
+
+                $scope.id = $stateParams.id;
+
+                $scope.titlePrefix = 'New';
+                $scope.syncing = false;
+                $scope.activeSection = 'incident';
+                $scope.states = US_STATES;
 
                 /**
                  * Closes the current report.
                  */
                 $scope.close = function () {
                     console.group('close');
+
+                    $scope.sync();
 
                     var confirm = $ionicPopup.confirm({
                         title: 'Are you sure?',
@@ -95,13 +120,12 @@
 
                     $scope.syncing = true;
 
-                    reportService.sync()
+                    reportService.sync($scope.reportModel)
                         .then(function (resp) {
                             console.info('synced');
                             $scope.syncing = false;
                         })
                         .catch(function (resp) {
-                            console.info('catch');
                         })
                         .finally(function () {
                             console.groupEnd();
@@ -111,12 +135,12 @@
                 /**
                  * Saves and closes the report
                  */
-                $scope.save = function (form) {
+                $scope.submit = function (form) {
                     console.group('save');
                     console.info(form);
 
                     // var valid = form.$valid;
-                    var valid = false;
+                    var valid = true;
                     console.info('valid: ' + valid);
 
                     if (valid) {
@@ -124,7 +148,7 @@
                             template: 'Sending your report'
                         });
 
-                        reportService.save()
+                        reportService.submit(form, $scope.reportModel)
                             .then(function (resp) {
                                 console.info('saved');
 
@@ -159,7 +183,7 @@
                                 template: 'Deleting report...'
                             });
 
-                            reportService.delete()
+                            reportService.delete($scope.reportModel.id)
                                 .then(function (resp) {
                                     console.info('deleted');
 
@@ -177,9 +201,7 @@
                     });
                 };
 
-                if ($scope.id) {
-                    $scope.getReport();
-                }
+                init();
 
                 console.groupEnd();
             }

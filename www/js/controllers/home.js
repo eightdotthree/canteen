@@ -15,13 +15,27 @@
 
                 setWindowWidth();
 
+                function init () {
+                    console.info('init');
+                    $scope.getUnsubmittedReports();
+                }
+
                 angular.element($window).bind('resize', function () {
                     $scope.$apply(function () {
                         setWindowWidth();
                     })
                 });
 
+                $scope.$on('$locationChangeSuccess', function (event) {
+                    console.info(event);
+                    init();
+                });
+
                 $scope.unsubmittedReports = [];
+
+                $scope.deleteLocalReports = function () {
+                    reportService.deleteReports();
+                };
 
                 /**
                  * Gets the unsubmitted reports from ReportService.
@@ -30,7 +44,7 @@
                 $scope.getUnsubmittedReports = function () {
                     $scope.loading = true;
 
-                    reportService.getUnsubmittedReports()
+                    reportService.getReports()
                         .then(function (resp) {
                             $scope.loading = false;
 
@@ -44,7 +58,7 @@
                         });
                 };
 
-                $scope.getUnsubmittedReports();
+                init();
             }
         );
 })(window, window.angular);

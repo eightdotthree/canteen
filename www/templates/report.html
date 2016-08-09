@@ -77,7 +77,7 @@
       <form
         novalidate
         name="reportForm"
-        ng-submit="save(reportForm)">
+        ng-submit="submit(reportForm)">
 
         <div class="row row-no-padding">
           <div class="col">
@@ -101,7 +101,7 @@
                       size="10"
                       class="input"
                       required
-                      ng-model="incidentUnitNumber" />
+                      ng-model="reportModel.incidentUnitNumber" />
                   </div>
                 </div>
 
@@ -119,7 +119,7 @@
                       class="input"
                       placeholder="mm/dd/yyyy"
                       required
-                      ng-model="incidentStart" />
+                      ng-model="reportModel.incidentStart" />
                   </div>
                 </div>
 
@@ -136,7 +136,7 @@
                       class="input"
                       type="datetime-local"
                       required
-                      ng-model="incidentInroute" />
+                      ng-model="reportModel.incidentInroute" />
                   </div>
 
                   <!-- on the scene -->
@@ -151,7 +151,7 @@
                       class="input"
                       type="datetime-local"
                       required
-                      ng-model="incidentOnscene" />
+                      ng-model="reportModel.incidentOnscene" />
                   </div>
                 </div>
 
@@ -175,7 +175,7 @@
                           class="input"
                           type="text"
                           required
-                          ng-model="incidentAddress" />
+                          ng-model="reportModel.incidentAddress" />
                       </div>
                     </div>
 
@@ -194,7 +194,7 @@
                           class="input"
                           type="text"
                           required
-                          ng-model="incidentCity" />
+                          ng-model="reportModel.incidentCity" />
                       </div>
 
                       <!-- state -->
@@ -208,7 +208,7 @@
                           name="incident-state"
                           class="input input-select"
                           required
-                          ng-model="incidentState"
+                          ng-model="reportModel.incidentState"
                           ng-options="option.abbr for option in states track by option.abbr">
                         </select>
                       </div>
@@ -224,7 +224,7 @@
                           name="incident-zipcode"
                           class="input"
                           type="number"
-                          ng-model="incidentZipcode" />
+                          ng-model="reportModel.incidentZipcode" />
                       </div>
                     </div>
                   </div>
@@ -239,31 +239,31 @@
 
                     <div class="row row-report-form row-report-form-group">
                       <div class="col col-50">
-                        <ion-checkbox ng-model="incidentTypeFire">Fire/ Alarm/ Companies</ion-checkbox>
+                        <ion-checkbox ng-model="reportModel.incidentTypeFire">Fire/ Alarm/ Companies</ion-checkbox>
                       </div>
 
                       <div class="col col-50">
-                        <ion-checkbox ng-model="incidentTypeFlood">Flood</ion-checkbox>
-                      </div>
-                    </div>
-
-                    <div class="row row-report-form row-report-form-group">
-                      <div class="col col-50">
-                        <ion-checkbox ng-model="incidentTypeHazmat">Hazmat</ion-checkbox>
-                      </div>
-
-                      <div class="col col-50">
-                        <ion-checkbox ng-model="incidentTypeSpecial">Special Event</ion-checkbox>
+                        <ion-checkbox ng-model="reportModel.incidentTypeFlood">Flood</ion-checkbox>
                       </div>
                     </div>
 
                     <div class="row row-report-form row-report-form-group">
                       <div class="col col-50">
-                        <ion-checkbox ng-model="incidentTypeMaintenence">Maintenence</ion-checkbox>
+                        <ion-checkbox ng-model="reportModel.incidentTypeHazmat">Hazmat</ion-checkbox>
                       </div>
 
                       <div class="col col-50">
-                        <ion-checkbox ng-model="incidentTypeOther">Other</ion-checkbox>
+                        <ion-checkbox ng-model="reportModel.incidentTypeSpecial">Special Event</ion-checkbox>
+                      </div>
+                    </div>
+
+                    <div class="row row-report-form row-report-form-group">
+                      <div class="col col-50">
+                        <ion-checkbox ng-model="reportModel.incidentTypeMaintenence">Maintenence</ion-checkbox>
+                      </div>
+
+                      <div class="col col-50">
+                        <ion-checkbox ng-model="reportModel.incidentTypeOther">Other</ion-checkbox>
                       </div>
                     </div>
                   </div>
@@ -294,7 +294,7 @@
                           type="text"
                           class="input"
                           required
-                          ng-model="teamMemberDriver" />
+                          ng-model="reportModel.teamMemberDriver" />
                       </div>
                     </div>
                   </div>
@@ -312,7 +312,7 @@
                       name="team-member"
                       type="text"
                       class="input"
-                      ng-model="teamMember" />
+                      ng-model="reportModel.teamMember" />
                   </div>
                 </div>
 
@@ -346,7 +346,7 @@
                           name="team-refferal-name"
                           class="input"
                           type="text"
-                          ng-model="teamRefferalName" />
+                          ng-model="reportModel.teamRefferalName" />
                       </div>
                     </div>
 
@@ -362,7 +362,7 @@
                           name="team-refferal-phone"
                           class="input"
                           type="tel"
-                          ng-model="teamRefferalPhone" />
+                          ng-model="reportModel.teamRefferalPhone" />
                       </div>
                     </div>
                   </div>
@@ -392,7 +392,7 @@
                           name="services-counseling-administer"
                           class="input"
                           type="text"
-                          ng-model="servicesCounselingAdminister" />
+                          ng-model="reportModel.servicesCounselingAdminister" />
                       </div>
                     </div>
 
@@ -408,7 +408,7 @@
                           name="services-counseling-individual"
                           class="input"
                           type="text"
-                          ng-model="servicesCounselingIndividual" />
+                          ng-model="reportModel.servicesCounselingIndividual" />
                       </div>
                     </div>
 
@@ -424,7 +424,7 @@
                           name="services-counseling-reason"
                           class="input"
                           type="text"
-                          ng-model="servicesCounselingReason" />
+                          ng-model="reportModel.servicesCounselingReason" />
                       </div>
                     </div>
 
@@ -440,7 +440,7 @@
                           name="services-counseling-phone-number"
                           class="input"
                           type="text"
-                          ng-model="servicesCounselingPhoneNumber" />
+                          ng-model="reportModel.servicesCounselingPhoneNumber" />
                       </div>
                     </div>
                   </div>
@@ -469,7 +469,7 @@
                       name="services-notes"
                       class="input input-textarea"
                       rows="8"
-                      ng-model="servicesNotes">
+                      ng-model="reportModel.servicesNotes">
                     </textarea>
                   </div>
                 </div>
@@ -493,7 +493,7 @@
                       class="input"
                       placeholder="mm/dd/yyyy"
                       required
-                      ng-model="endTime" />
+                      ng-model="reportModel.endTime" />
                   </div>
                 </div>
 
@@ -511,7 +511,7 @@
                       size="5"
                       class="input"
                       required
-                      ng-model="endTotalMileage" />
+                      ng-model="reportModel.endTotalMileage" />
                   </div>
                 </div>
 
@@ -532,7 +532,7 @@
                         min="0"
                         max="100"
                         required
-                        ng-model="endFuellevel" />
+                        ng-model="reportModel.endFuellevel" />
 
                       <i class="icon ion-happy-outline"></i>
                     </div>
@@ -556,7 +556,7 @@
                         min="0"
                         max="100"
                         required
-                        ng-model="endWaterlevel" />
+                        ng-model="reportModel.endWaterlevel" />
 
                       <i class="icon ion-happy-outline"></i>
                     </div>
@@ -575,7 +575,7 @@
                       name="services-notes"
                       class="input input-textarea"
                       rows="8"
-                      ng-model="servicesNotes">
+                      ng-model="reportModel.servicesNotes">
                     </textarea>
                   </div>
                 </div>
