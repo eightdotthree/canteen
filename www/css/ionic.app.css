@@ -9829,10 +9829,7 @@ a.button {
     max-width: 250px;
     height: auto; }
   .content-home .home-body {
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center; }
+    padding: 20px; }
     .content-home .home-body h1 {
       margin-top: 5px; }
     .content-home .home-body > div {
