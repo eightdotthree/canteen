@@ -15,6 +15,15 @@
     $dark:                            #444 !default;
 */
 
+@font-face {
+  font-family: 'Average';
+  src: url('/fonts/Average/average-regular-webfont.eot'); /* IE9 Compat Modes */
+  src: url('/fonts/Average/average-regular-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/Average/average-regular-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/fonts/Average/average-regular-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/Average/average-regular-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
 $stable:                            #d8d7d2 !default; // darker taupe
 $stable-light:                      #ebebe8;
 $assertive:                         #de373f !default; // salvation red
@@ -36,6 +45,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 $report-body-padding:               30px - $grid-padding-width;
 $report-nav-width:                  100px;
 
+$font-family-serif: "Average", "Times New Roman", Times, serif;
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
@@ -46,6 +57,14 @@ $report-nav-width:                  100px;
 @import "components/_list-open-reports";
 
 .canteen {
+    h1 {
+        font-family: $font-family-serif;
+    }
+
+    .bar .title {
+        font-family: $font-family-serif;
+    }
+
     .pane {
         background: $stable-light;
         background: linear-gradient(to bottom,  $stable-light 0%, darken($stable, 10%) 100%);

@@ -15,6 +15,13 @@
     $royal:                           #886aea !default;
     $dark:                            #444 !default;
 */
+@font-face {
+  font-family: 'Average';
+  src: url("/fonts/Average/average-regular-webfont.eot");
+  /* IE9 Compat Modes */
+  src: url("/fonts/Average/average-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/Average/average-regular-webfont.woff") format("woff"), url("/fonts/Average/average-regular-webfont.ttf") format("truetype"), url("/fonts/Average/average-regular-webfont.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -9954,6 +9961,12 @@ a.button {
 .list-open-reports {
   max-width: 400px;
   margin: 0 auto; }
+
+.canteen h1 {
+  font-family: "Average", "Times New Roman", Times, serif; }
+
+.canteen .bar .title {
+  font-family: "Average", "Times New Roman", Times, serif; }
 
 .canteen .pane {
   background: #ebebe8;
