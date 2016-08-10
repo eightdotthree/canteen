@@ -144,6 +144,7 @@
 
                 this.deleteReports = function () {
                     localStorageService.set('reports', []);
+                    return [];
                 };
 
                 /**

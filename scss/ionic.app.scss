@@ -86,3 +86,48 @@ $report-nav-width:                  100px;
         border: none;
     }
 }
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes fadeOutDown {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+}
+
+$slide-duration: 0.3s;
+
+.slide-enter {
+    &.ng-enter,
+    &.ng-enter-active {
+        animation: fadeInUp $slide-duration ease;
+    }
+}
+.slide-leave {
+    &.ng-leave,
+    &.ng-leave-active {
+        animation: fadeOutDown $slide-duration ease;
+    }
+}
+.slide-hide {
+    &.ng-hide-add-active {
+        animation: fadeOutDown $slide-duration ease;
+    }
+}
+.slide-show {
+    &.ng-hide-remove {
+        animation: fadeInUp $slide-duration ease;
+    }
+}

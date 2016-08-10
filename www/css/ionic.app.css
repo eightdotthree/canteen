@@ -9822,6 +9822,7 @@ a.button {
     max-width: 250px;
     height: auto; }
   .content-home .home-body {
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center; }
@@ -9835,9 +9836,6 @@ a.button {
   .content-home .home-body-item {
     width: 100%;
     margin: 0 auto 40px auto; }
-  .content-home .list-open-reports {
-    max-height: 250px;
-    overflow: scroll; }
 
 .content-report-body {
   padding: 0;
@@ -9981,3 +9979,30 @@ a.button {
 
 .canteen .item-no-border {
   border: none; }
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0); }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes fadeOutDown {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0); } }
+
+.slide-enter.ng-enter, .slide-enter.ng-enter-active {
+  animation: fadeInUp 0.3s ease; }
+
+.slide-leave.ng-leave, .slide-leave.ng-leave-active {
+  animation: fadeOutDown 0.3s ease; }
+
+.slide-hide.ng-hide-add-active {
+  animation: fadeOutDown 0.3s ease; }
+
+.slide-show.ng-hide-remove {
+  animation: fadeInUp 0.3s ease; }

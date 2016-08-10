@@ -30,12 +30,6 @@
     <script id="home.html" type="text/ng-template">
       <ion-view view-title="Canteen Report">
 
-        <ion-nav-buttons side="primary">
-          <button class="button" ng-click="deleteLocalReports()">
-            Delete Local Reports
-          </button>
-        </ion-nav-buttons>
-
         <ion-nav-buttons side="secondary">
           <button class="button" nav-direction="forward" ui-sref="report">
             New Report
@@ -56,14 +50,20 @@
                 <button class="button button-assertive" nav-direction="forward" ui-sref="report">
                   New Report
                 </button>
+
+                <button
+                  class="button button-outline button-assertive"
+                  ng-click="deleteLocalReports()">
+                  Delete Reports
+                </button>
               </div>
 
               <div class="home-body-item">
                 <ion-spinner ng-show="loading"></ion-spinner>
 
                 <div
-                  class="list list-open-reports"
-                  ng-show="unsubmittedReports && !loading">
+                  class="list list-open-reports slide-enter"
+                  ng-show="unsubmittedReports.length > 0 && !loading">
 
                   <div class="item item-divider">
                     Unsubmitted Reports
@@ -71,6 +71,7 @@
 
                   <a
                     class="item"
+                    nav-direction="forward"
                     ui-sref="report({ id: report.id })"
                     ng-repeat="report in unsubmittedReports">
 

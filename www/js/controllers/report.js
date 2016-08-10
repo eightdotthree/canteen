@@ -158,8 +158,7 @@
                     console.group('save');
                     console.info(form);
 
-                    // var valid = form.$valid;
-                    var valid = true;
+                    var valid = form.$valid;
                     console.info('valid: ' + valid);
 
                     if (valid) {

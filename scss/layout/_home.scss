@@ -8,6 +8,7 @@
     }
 
     .home-body {
+        padding: $report-body-padding;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -29,10 +30,5 @@
     .home-body-item {
         width: 100%;
         margin: 0 auto 40px auto;
-    }
-
-    .list-open-reports {
-        max-height: 250px;
-        overflow: scroll;
     }
 }

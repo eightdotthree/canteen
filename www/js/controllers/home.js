@@ -9,14 +9,14 @@
                 console.group('homeController');
                 console.groupEnd();
 
+                $scope.unsubmittedReports = [];
+
                 function setWindowWidth () {
                     $scope.windowHeight = $window.innerHeight;
                 }
 
-                setWindowWidth();
-
                 function init () {
-                    console.info('init');
+                    setWindowWidth();
                     $scope.getUnsubmittedReports();
                 }
 
@@ -26,15 +26,14 @@
                     })
                 });
 
-                $scope.$on('$locationChangeSuccess', function (event) {
-                    console.info(event);
-                    init();
+                $scope.$on('$locationChangeSuccess', function (event, newUrl, oldUrl, newState, oldState) {
+                    if (newUrl.indexOf('/report/') === -1) {
+                        $scope.getUnsubmittedReports();
+                    }
                 });
 
-                $scope.unsubmittedReports = [];
-
                 $scope.deleteLocalReports = function () {
-                    reportService.deleteReports();
+                    $scope.unsubmittedReports = reportService.deleteReports();
                 };
 
                 /**
@@ -42,12 +41,8 @@
                  * @return {[type]} [description]
                  */
                 $scope.getUnsubmittedReports = function () {
-                    $scope.loading = true;
-
                     reportService.getReports()
                         .then(function (resp) {
-                            $scope.loading = false;
-
                             if (resp) {
                                 $scope.unsubmittedReports = resp;
                             }
