@@ -10,7 +10,7 @@
      */
     angular.module('canteenreport')
         .service('reportService',
-            function ($q, $timeout, localStorageService, US_STATES) {
+            function ($q, $timeout, localStorageService, reportFactory) {
                 console.group('reportService');
 
                 var logPrefix = 'reportService: ';
@@ -27,28 +27,6 @@
                     return deferred.promise;
                 }
 
-                function findStateByAbbr (abbr) {
-                    var state;
-
-                    angular.forEach(US_STATES, function (value, index) {
-                        if (value.abbr === abbr) {
-                            state = value;
-                        }
-                    });
-
-                    return state;
-                }
-
-                function getUnitNumber () {
-                    console.group(logPrefix + 'getUnitNumber');
-
-                    var unitNumber = localStorageService.get('unitNumber');
-                    console.info('unitNumber: ' + unitNumber);
-                    console.groupEnd();
-
-                    return unitNumber;
-                }
-
                 function getLocalReports () {
                     var reports = localStorageService.get('reports') ? localStorageService.get('reports') : [];
                     return reports;
@@ -57,25 +35,18 @@
                 function getLocalReport (id) {
                     console.group(logPrefix + 'getLocalReport: ' + id);
 
-                    var reports = getLocalReports();
-                    var report;
+                    var localReports = getLocalReports(),
+                        localReport,
+                        report;
 
-                    angular.forEach(reports, function (value, key) {
+                    angular.forEach(localReports, function (value, key) {
                         if (String(value.id) === String(id)) {
-                            report = value;
+                            localReport = value;
                         }
                     });
 
-                    // convert date strings to dates, move to a factory
-                    if (report) {
-                        var incidentStart = new Date(report.incidentStart);
-                        report.incidentStart = incidentStart;
-
-                        var incidentInroute = new Date(report.incidentInroute);
-                        report.incidentInroute = incidentInroute;
-
-                        var incidentOnscene = new Date(report.incidentOnscene);
-                        report.incidentOnscene = incidentOnscene;
+                    if (localReport) {
+                        report = new reportFactory(localReport);
                     }
 
                     console.info(report);
@@ -154,25 +125,8 @@
                 this.newReport = function () {
                     console.group(logPrefix + 'newReport');
 
-                    var date = new Date(),
-                        id = date.getUTCMilliseconds(),
-                        start = date,
-                        inroute = date;
-
-                    var report = {
-                        id: id,
-                        incidentUnitNumber: getUnitNumber(),
-                        incidentStart: start,
-                        incidentInroute: inroute,
-                        incidentState: findStateByAbbr('PA'),
-                        teamMembers: [],
-                        servicesCounseling: [{
-                            administrator: '',
-                            individual: '',
-                            reason: '',
-                            phoneNumber: ''
-                        }]
-                    }
+                    var report = new reportFactory();
+                    console.info(report);
 
                     var reports = getLocalReports();
                     reports.push(report);
@@ -216,13 +170,20 @@
                 this.submit = function (form, reportModel) {
                     console.group(logPrefix + 'save');
                     console.info(form);
-                    console.info(reportModel.incidentUnitNumber);
+
+                    var deferred = $q.defer();
 
                     // store the unit number for use on this device
                     localStorageService.set('unitNumber', reportModel.incidentUnitNumber);
 
+                    // temp resolve until i can integrate with the server
+                    $timeout(function () {
+                        deferred.resolve();
+                    }, 1000);
+
+                    return deferred.promise;
+
                     console.groupEnd();
-                    return stubHttp();
                 };
 
                 /**
