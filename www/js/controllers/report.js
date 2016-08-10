@@ -69,6 +69,25 @@
                 $scope.states = US_STATES;
 
                 /**
+                 * Adds an empty team member
+                 */
+                $scope.addTeamMember = function () {
+                    $scope.reportModel.teamMembers.push('');
+                };
+
+                /**
+                 * Adds more counseling
+                 */
+                $scope.addCounseling = function () {
+                    $scope.reportModel.servicesCounseling.push({
+                        administrator: '',
+                        individual: '',
+                        reason: '',
+                        phoneNumber: ''
+                    });
+                };
+
+                /**
                  * Closes the current report.
                  */
                 $scope.close = function () {

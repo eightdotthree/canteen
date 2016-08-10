@@ -10,7 +10,7 @@
      */
     angular.module('canteenreport')
         .service('reportService',
-            function ($q, $timeout, localStorageService) {
+            function ($q, $timeout, localStorageService, US_STATES) {
                 console.group('reportService');
 
                 var logPrefix = 'reportService: ';
@@ -25,6 +25,18 @@
                     }, loadMin + Math.random() * loadMax);
 
                     return deferred.promise;
+                }
+
+                function findStateByAbbr (abbr) {
+                    var state;
+
+                    angular.forEach(US_STATES, function (value, index) {
+                        if (value.abbr === abbr) {
+                            state = value;
+                        }
+                    });
+
+                    return state;
                 }
 
                 function getUnitNumber () {
@@ -150,7 +162,15 @@
                         id: id,
                         incidentUnitNumber: getUnitNumber(),
                         incidentStart: start,
-                        incidentInroute: inroute
+                        incidentInroute: inroute,
+                        incidentState: findStateByAbbr('PA'),
+                        teamMembers: [],
+                        servicesCounseling: [{
+                            administrator: '',
+                            individual: '',
+                            reason: '',
+                            phoneNumber: ''
+                        }]
                     }
 
                     var reports = getLocalReports();

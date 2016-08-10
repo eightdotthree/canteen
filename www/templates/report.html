@@ -116,7 +116,7 @@
                       id="incident-start"
                       name="incident-start"
                       type="datetime-local"
-                      class="input"
+                      class="input input-select"
                       placeholder="mm/dd/yyyy"
                       required
                       ng-model="reportModel.incidentStart" />
@@ -133,7 +133,7 @@
                     <input
                       id="incident-inroute"
                       name="incident-inroute"
-                      class="input"
+                      class="input input-select"
                       type="datetime-local"
                       required
                       ng-model="reportModel.incidentInroute" />
@@ -148,7 +148,7 @@
                     <input
                       id="incident-onscene"
                       name="incident-onscene"
-                      class="input"
+                      class="input input-select"
                       type="datetime-local"
                       required
                       ng-model="reportModel.incidentOnscene" />
@@ -301,7 +301,7 @@
                 </div>
 
                 <!-- team member repeat -->
-                <div class="row row-report-form" ng-repeat="teamMember in teamMembers">
+                <div class="row row-report-form" ng-repeat="teamMember in reportModel.teamMembers track by $index">
                   <div class="col col-40">
                     <label class="input-label input-label-light">
                       Team member
@@ -312,7 +312,7 @@
                       name="team-member"
                       type="text"
                       class="input"
-                      ng-model="reportModel.teamMember" />
+                      ng-model="reportModel.teamMembers[$index]" />
                   </div>
                 </div>
 
@@ -321,6 +321,7 @@
                   <div class="col">
                     <button
                       class="button button-small button-assertive"
+                      type="button"
                       ng-click="addTeamMember()">
                       Add Team Member
                     </button>
@@ -374,7 +375,7 @@
               <fieldset id="services" class="fieldset">
 
                 <!-- counseling, repeat -->
-                <div class="row row-report-form">
+                <div class="row row-report-form" ng-repeat="counsel in reportModel.servicesCounseling track by $index">
                   <div class="col">
                     <label class="input-label input-label-light-parent">
                       Counseling/ Prayer
@@ -392,7 +393,7 @@
                           name="services-counseling-administer"
                           class="input"
                           type="text"
-                          ng-model="reportModel.servicesCounselingAdminister" />
+                          ng-model="reportModel.servicesCounseling[$index].administrator" />
                       </div>
                     </div>
 
@@ -408,7 +409,7 @@
                           name="services-counseling-individual"
                           class="input"
                           type="text"
-                          ng-model="reportModel.servicesCounselingIndividual" />
+                          ng-model="reportModel.servicesCounseling[$index].individual" />
                       </div>
                     </div>
 
@@ -424,7 +425,7 @@
                           name="services-counseling-reason"
                           class="input"
                           type="text"
-                          ng-model="reportModel.servicesCounselingReason" />
+                          ng-model="reportModel.servicesCounseling[$index].reason" />
                       </div>
                     </div>
 
@@ -439,8 +440,8 @@
                           id="services-counseling-phone-number"
                           name="services-counseling-phone-number"
                           class="input"
-                          type="text"
-                          ng-model="reportModel.servicesCounselingPhoneNumber" />
+                          type="tel"
+                          ng-model="reportModel.servicesCounseling[$index].phoneNumber" />
                       </div>
                     </div>
                   </div>
@@ -451,6 +452,7 @@
                   <div class="col">
                     <button
                       class="button button-small button-assertive"
+                      type="button"
                       ng-click="addCounseling()">
                       Add Another
                     </button>
