@@ -15,18 +15,6 @@
 
                 var logPrefix = 'reportService: ';
 
-                function stubHttp (response) {
-                    var loadMin = 500;
-                    var loadMax = 3000;
-                    var deferred = $q.defer();
-
-                    $timeout(function () {
-                        deferred.resolve(response);
-                    }, loadMin + Math.random() * loadMax);
-
-                    return deferred.promise;
-                }
-
                 function getLocalReports () {
                     var reports = localStorageService.get('reports') ? localStorageService.get('reports') : [];
                     return reports;
@@ -113,9 +101,44 @@
                     return deferred.promise;
                 };
 
+                /**
+                 * Deletes all reports from local storage.
+                 * @return {[type]} [description]
+                 */
                 this.deleteReports = function () {
                     localStorageService.set('reports', []);
                     return [];
+                };
+
+                /**
+                 * Deletes the current report.
+                 * @return {Promise}
+                 */
+                this.deleteReport = function (id) {
+                    console.group(logPrefix + 'delete');
+
+                    var deferred = $q.defer();
+
+                    var reports = getLocalReports(),
+                        reportIndex;
+
+                    angular.forEach(reports, function (value, key) {
+                        if (String(value.id) === String(id)) {
+                            reportIndex = key;
+                        }
+                    });
+
+                    reports.splice(reportIndex, 1);
+
+                    localStorageService.set('reports', reports);
+
+                    $timeout(function () {
+                        deferred.resolve();
+                    }, 1000);
+
+                    console.groupEnd();
+
+                    return deferred.promise;
                 };
 
                 /**
@@ -134,7 +157,6 @@
                     localStorageService.set('reports', reports);
 
                     console.info(localStorageService.get('reports'));
-
                     console.info('reports: ' + this.reports);
                     console.groupEnd();
 
@@ -184,37 +206,6 @@
                     return deferred.promise;
 
                     console.groupEnd();
-                };
-
-                /**
-                 * Deletes the current report.
-                 * @return {Promise}
-                 */
-                this.delete = function (id) {
-                    console.group(logPrefix + 'delete');
-
-                    var deferred = $q.defer();
-
-                    var reports = getLocalReports(),
-                        reportIndex;
-
-                    angular.forEach(reports, function (value, key) {
-                        if (String(value.id) === String(id)) {
-                            reportIndex = key;
-                        }
-                    });
-
-                    reports.splice(reportIndex, 1);
-
-                    localStorageService.set('reports', reports);
-
-                    $timeout(function () {
-                        deferred.resolve();
-                    }, 1000);
-
-                    console.groupEnd();
-
-                    return deferred.promise;
                 };
 
                 console.groupEnd();

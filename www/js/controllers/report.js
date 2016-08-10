@@ -201,7 +201,7 @@
                                 template: 'Deleting report...'
                             });
 
-                            reportService.delete($scope.reportModel.id)
+                            reportService.deleteReport($scope.reportModel.id)
                                 .then(function (resp) {
                                     console.info('deleted');
 
