@@ -2,6 +2,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 var app = angular.module('canteenreport', ['ionic', 'LocalStorageModule']);
+var debug = true;
 
 app.run(function ($ionicPlatform) {
   $ionicPlatform.ready(function () {

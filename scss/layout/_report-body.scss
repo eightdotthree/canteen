@@ -15,11 +15,19 @@
     .report-body-wrapper {
         background-color: white;
         padding: 0;
-        margin: 0 0 0 $report-nav-width;
+        margin: 0 0 0 $report-nav-width-sm;
+
+        @media screen and (min-height : $grid-responsive-md-break) {
+            margin-left: $report-nav-width;
+        }
     }
 
     .report-section {
-        padding: $report-body-padding;
+        padding: $report-body-padding / 2;
+
+        @media screen and (min-height : $grid-responsive-md-break) {
+            padding: $report-body-padding;
+        }
     }
 
     .report-footer {

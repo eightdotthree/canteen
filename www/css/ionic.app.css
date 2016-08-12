@@ -9849,9 +9849,15 @@ a.button {
   .content-report-body .report-body-wrapper {
     background-color: white;
     padding: 0;
-    margin: 0 0 0 100px; }
+    margin: 0 0 0 70px; }
+    @media screen and (min-height: 767px) {
+      .content-report-body .report-body-wrapper {
+        margin-left: 100px; } }
   .content-report-body .report-section {
-    padding: 20px; }
+    padding: 10px; }
+    @media screen and (min-height: 767px) {
+      .content-report-body .report-section {
+        padding: 20px; } }
   .content-report-body .report-footer {
     background-color: #322f28;
     font-size: 16px;
@@ -9925,8 +9931,11 @@ a.button {
   border-right-width: 1px;
   border-right-style: solid;
   padding-top: 20px;
-  width: 100px;
+  width: 70px;
   z-index: 500; }
+  @media screen and (min-height: 767px) {
+    .content-report-nav {
+      width: 100px; } }
   .content-report-nav .button-report-nav {
     border-color: transparent;
     background-color: transparent;
@@ -9948,6 +9957,11 @@ a.button {
       display: block; }
       .content-report-nav .button-report-nav .icon:before {
         font-size: 32px; }
+    .content-report-nav .button-report-nav span {
+      display: none; }
+      @media screen and (min-height: 767px) {
+        .content-report-nav .button-report-nav span {
+          display: inline; } }
     .content-report-nav .button-report-nav:active, .content-report-nav .button-report-nav:focus, .content-report-nav .button-report-nav.activated, .content-report-nav .button-report-nav.active {
       color: #de373f; }
       .content-report-nav .button-report-nav:active .icon, .content-report-nav .button-report-nav:focus .icon, .content-report-nav .button-report-nav.activated .icon, .content-report-nav .button-report-nav.active .icon {

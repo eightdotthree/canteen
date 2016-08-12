@@ -4,8 +4,12 @@
     border-right-style: solid;
 
     padding-top: $report-body-padding;
-    width: $report-nav-width;
+    width: $report-nav-width-sm;
     z-index: 500;
+
+    @media screen and (min-height : $grid-responsive-md-break) {
+        width: $report-nav-width;
+    }
 
     .button-report-nav {
         @include button-style(transparent, transparent, transparent, transparent, $button-default-text);
@@ -23,6 +27,14 @@
 
             &:before {
                 font-size: 32px;
+            }
+        }
+
+        span {
+            display: none;
+
+            @media screen and (min-height : $grid-responsive-md-break) {
+                display: inline;
             }
         }
 

@@ -44,6 +44,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // canteen report variables
 $report-body-padding:               30px - $grid-padding-width;
 $report-nav-width:                  100px;
+$report-nav-width-sm:               70px;
 
 $font-family-serif: "Average", "Times New Roman", Times, serif;
 
@@ -60,10 +61,6 @@ $font-family-serif: "Average", "Times New Roman", Times, serif;
     h1 {
         font-family: $font-family-serif;
     }
-
-    // .bar .title {
-    //     font-family: $font-family-serif;
-    // }
 
     .pane {
         background: $stable-light;

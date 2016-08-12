@@ -5,11 +5,12 @@
      */
     angular.module('canteenreport')
         .controller('homeController',
-            function ($scope, $window, $state, $ionicPopover, $ionicViewSwitcher, reportService) {
+            function ($scope, $window, $document, $state, $ionicPopover, $ionicViewSwitcher, reportService) {
                 console.group('homeController');
                 console.groupEnd();
 
                 $scope.unsubmittedReports = [];
+                $scope.debug = debug;
 
                 $scope.popover = $ionicPopover.fromTemplate('unsubmitted-reports.html', {
                     scope: $scope
@@ -22,7 +23,11 @@
                 });
 
                 function setWindowWidth () {
-                    $scope.windowHeight = $window.innerHeight;
+                    var navBar = document.getElementById('navBar'),
+                        bar = navBar.getElementsByClassName('title')[0],
+                        offset = bar.style.height | 43;
+
+                    $scope.windowHeight = $window.innerHeight - offset - 1;
                 }
 
                 function init () {
@@ -43,8 +48,7 @@
                 });
 
                 /**
-                 * [newReport description]
-                 * @return {[type]} [description]
+                 * Navigate to a new report.
                  */
                 $scope.newReport = function () {
                     $ionicViewSwitcher.nextDirection('forward'); // 'forward', 'back', etc.
@@ -53,21 +57,22 @@
                 };
 
                 /**
-                 * [loadReport description]
-                 * @param  {[type]} id [description]
-                 * @return {[type]}    [description]
+                 * Navigate to a report with an id.
+                 * @param  {Number} id The ID of the report.
                  */
                 $scope.loadReport = function (id) {
                     $ionicViewSwitcher.nextDirection('forward'); // 'forward', 'back', etc.
                     $scope.popover.hide();
-                    $state.go('report', { id: id });
+                    $state.go('report', {
+                        id: id
+                    });
                 };
 
                 /**
                  * [deleteLocalReports description]
                  * @return {[type]} [description]
                  */
-                $scope.deleteLocalReports = function () {
+                $scope.deleteUnsubmittedReports = function () {
                     $scope.unsubmittedReports = reportService.deleteReports();
                 };
 
