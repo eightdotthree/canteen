@@ -9,8 +9,6 @@
                 console.group('reportController');
                 console.info($stateParams);
 
-                $scope.reportModel = {};
-
                 function init () {
                     if ($scope.id) {
                         getReport();
