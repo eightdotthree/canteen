@@ -5,11 +5,21 @@
      */
     angular.module('canteenreport')
         .controller('homeController',
-            function ($scope, $window, reportService) {
+            function ($scope, $window, $state, $ionicPopover, $ionicViewSwitcher, reportService) {
                 console.group('homeController');
                 console.groupEnd();
 
                 $scope.unsubmittedReports = [];
+
+                $scope.popover = $ionicPopover.fromTemplate('unsubmitted-reports.html', {
+                    scope: $scope
+                });
+
+                $ionicPopover.fromTemplateUrl('unsubmitted-reports.html', {
+                    scope: $scope
+                }).then(function(popover) {
+                    $scope.popover = popover;
+                });
 
                 function setWindowWidth () {
                     $scope.windowHeight = $window.innerHeight;
@@ -32,6 +42,31 @@
                     }
                 });
 
+                /**
+                 * [newReport description]
+                 * @return {[type]} [description]
+                 */
+                $scope.newReport = function () {
+                    $ionicViewSwitcher.nextDirection('forward'); // 'forward', 'back', etc.
+                    $scope.popover.hide();
+                    $state.go('report');
+                };
+
+                /**
+                 * [loadReport description]
+                 * @param  {[type]} id [description]
+                 * @return {[type]}    [description]
+                 */
+                $scope.loadReport = function (id) {
+                    $ionicViewSwitcher.nextDirection('forward'); // 'forward', 'back', etc.
+                    $scope.popover.hide();
+                    $state.go('report', { id: id });
+                };
+
+                /**
+                 * [deleteLocalReports description]
+                 * @return {[type]} [description]
+                 */
                 $scope.deleteLocalReports = function () {
                     $scope.unsubmittedReports = reportService.deleteReports();
                 };
@@ -51,6 +86,15 @@
                         })
                         .finally(function () {
                         });
+                };
+
+                /**
+                 * [showUnsubmittedReports description]
+                 * @param  {[type]} $event [description]
+                 * @return {[type]}        [description]
+                 */
+                $scope.showUnsubmittedReports = function ($event) {
+                    $scope.popover.show($event);
                 };
 
                 init();
