@@ -1,6 +1,5 @@
 describe('homeController', function () {
     var scope,
-        deferred,
         stateMock,
         ionicViewSwitcherMock,
         reportServiceMock,
@@ -20,17 +19,18 @@ describe('homeController', function () {
         httpBackend.whenGET('unsubmitted-reports.html').respond(200, '');
 
         scope = $rootScope.$new();
-        deferred = $q.defer();
 
-        var def = $q.defer();
-        def.resolve([{ id: 666 }]);
+        var deferred = $q.defer();
+
+        var getReportsDeferred = $q.defer();
+        getReportsDeferred.resolve([{ id: 666 }]);
 
         stateMock = jasmine.createSpyObj('$state spy', ['go']);
         ionicViewSwitcherMock = jasmine.createSpyObj('$ionicViewSwitcher spy', ['nextDirection']);
 
         reportServiceMock = {
             deleteReports: jasmine.createSpy('deleteReports spy').and.returnValue([]),
-            getReports: jasmine.createSpy('getReports spy').and.returnValue(def.promise)
+            getReports: jasmine.createSpy('getReports spy').and.returnValue(getReportsDeferred.promise)
         };
 
         $controller('homeController', {
