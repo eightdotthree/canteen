@@ -23,11 +23,14 @@
                 });
 
                 function setWindowWidth () {
-                    var navBar = document.getElementById('navBar'),
-                        bar = navBar.getElementsByClassName('title')[0],
-                        offset = bar.style.height | 43;
+                    var navBar = document.getElementById('navBar');
 
-                    $scope.windowHeight = $window.innerHeight - offset - 1;
+                    if (navBar) {
+                        var bar = navBar.getElementsByClassName('title')[0],
+                            offset = bar.style.height | 43;
+
+                        $scope.windowHeight = $window.innerHeight - offset - 1;
+                    }
                 }
 
                 function init () {

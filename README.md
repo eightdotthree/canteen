@@ -6,6 +6,12 @@
 - npm install -g cordova
 - npm install -g ionic
 - npm install -g gulp
+- npm install karma --save-dev
+- npm install karma-jasmine --save-dev
+- bower install angular-mocks#1.5.3 --save-dev
+
+- npm install -g karma-cli
+- npm install -g phantomjs
 
 - ionic setup sass
 - ionic serve
