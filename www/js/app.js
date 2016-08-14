@@ -40,7 +40,7 @@ app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProv
     })
     .state('report', {
       url: '/report/:id',
-      templateUrl: 'report.html',
+      templateUrl: 'templates/report.html',
       controller: 'reportController'
     });
 
